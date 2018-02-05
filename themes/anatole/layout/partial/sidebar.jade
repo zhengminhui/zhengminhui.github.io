@@ -1,0 +1,24 @@
+.sidebar.animated.fadeInDown
+  .logo-title
+    .title
+      img(src= url_for('images/logo@2x.png'),style="width:127px;")
+      h3(title="")
+        a(href="/")= config.title
+      if theme.description
+        .description
+          p= theme.description
+
+  ul.social-links
+    if theme.github
+      li
+        a(href="https://github.com/" + theme.github, target="_blank")
+          i.fa.fa-github
+    if theme.instagram
+      li
+        a(href="http://instagram.com/" + theme.instagram, target="_blank")
+          i.fa.fa-instagram
+    if theme.weibo
+      li
+        a(href="http://weibo.com/" + theme.weibo, target="_blank")
+          i.fa.fa-weibo
+  include footer
