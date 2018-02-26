@@ -1,5 +1,5 @@
 ---
-title: run react native app on Mac
+title: Run React Native App on Mac
 date: 2018-02-05 01:05:04
 categories:
 - web
