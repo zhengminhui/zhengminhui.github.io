@@ -18,7 +18,7 @@ tags:
 
 After installing these tools, use `react-native run-ios` to start your simulator.
 
-And in case if you met this error code when you run `react-native run-ios`
+And in case if you met this error code when you run `react-native run-ios [--simulator="iPhone X"]`
 
 ```shell
 Found Xcode project TestProject.xcodeproj
