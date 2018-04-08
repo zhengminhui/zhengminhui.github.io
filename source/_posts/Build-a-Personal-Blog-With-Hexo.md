@@ -79,3 +79,21 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 Now, you can take a look at your blog in your browser.
 
 ## Add new layouts
+
+```bash
+hexo new post <title>
+```
+
+if met this fatal error, try install `hexo-deployer-git` again.
+
+```bash
+Error: fatal: in unpopulated submodule '.deploy_git'
+```
+
+```bash
+npm install hexo-deployer-git –save
+rm -rf .deploy_git
+hexo g
+hexo d
+hexo clean
+```
