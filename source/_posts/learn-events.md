@@ -59,7 +59,7 @@ In the bubbling phase, the exact opposite occurs:
 The browser checks to see if the element that was actually clicked on has an onclick event handler registered on it in the bubbling phase, and runs it if so.
 Then it moves on to the next immediate ancestor element and does the same thing, then the next one, and so on until it reaches the `<html>` element.
 
-冒泡阶段注册 event handler，If you really want to register an event in the capturing phase instead, you can do so by registering your handler using addEventListener(), and setting the optional third property to true.
+Event handler registers in the bubbling phase. If you really want to register an event in the capturing phase instead, you can do so by registering your handler using addEventListener(), and setting the optional third property to true.
 
 ```js
 element1.addEventListener('click', doSomething2, true); // fire at capture phase
