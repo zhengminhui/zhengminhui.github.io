@@ -107,3 +107,5 @@ mdn <https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/E
 event order <https://www.quirksmode.org/js/events_order.html>
 
 event delegate <https://davidwalsh.name/event-delegate>
+
+Event delegation <https://javascript.info/event-delegation>
