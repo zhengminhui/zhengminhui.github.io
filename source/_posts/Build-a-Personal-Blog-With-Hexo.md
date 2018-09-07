@@ -9,7 +9,7 @@ tags:
 date: 2017-04-09 22:50:50
 ---
 
-After spending serveral nights working on my personal blog with Hexo, I finished the structure work and deployed it with Github Pages. Compare to Wordpress, I think Hexo is more customizable and easizer to handle as a developer. Hence I'm going to write down this tutorial to help more people who is also interested in building blog with Hexo, as well as summarizing what I have done for now.
+After spending several nights working on my personal blog with Hexo, I finished the structure work and deployed it with Github Pages. Compare to Wordpress, I think Hexo is more customizable and easier to handle as a developer. Hence I'm going to write down this tutorial to help more people who is also interested in building blog with Hexo, as well as summarizing what I have done for now.
 
 Before we start, you should already be familiar with npm and git operations. Besides, make sure that your computer has Node and npm installed locally.
 
@@ -91,7 +91,7 @@ Error: fatal: in unpopulated submodule '.deploy_git'
 ```
 
 ```bash
-npm install hexo-deployer-git –save
+npm install hexo-deployer-git --save
 rm -rf .deploy_git
 hexo g
 hexo d
