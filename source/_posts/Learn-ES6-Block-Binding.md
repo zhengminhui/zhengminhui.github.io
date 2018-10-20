@@ -2,15 +2,15 @@
 title: Learn ES6 Block Binding
 date: 2018-05-03 00:07:52
 categories:
-- web
+  - web
 tags:
-- ECMAScript2015
-- es6
-- var
-- let
-- const
-- block binding
-- hoisting
+  - ECMAScript2015
+  - es6
+  - var
+  - let
+  - const
+  - block binding
+  - hoisting
 ---
 
 ### Var declaration and hoisting
@@ -104,5 +104,3 @@ if (condition) {
   let value = 'blue';
 }
 ```
-
-
