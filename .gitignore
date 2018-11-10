@@ -1,6 +1,4 @@
 .deploy_git/
-
 node_modules/
-
 .idea
 .vscode
