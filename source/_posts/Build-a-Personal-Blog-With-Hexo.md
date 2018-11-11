@@ -40,7 +40,7 @@ More info: [Server](https://hexo.io/docs/server.html)
 
 At this time, go to `localhost:4000`, and you should see your blog now has a "Hello World" article with default theme.
 
-## Deploy on Github
+#### Deploy on Github
 
 You can follow [Github Pages](https://pages.github.com/) to create a repo in your github. After that, you can `git clone` with your https or ssh url to your local.
 Then back to your blog folder. We need to relate your source code to your repo. First install hexo-deployer-git:
@@ -78,7 +78,7 @@ More info: [Deployment](https://hexo.io/docs/deployment.html)
 
 Now, you can take a look at your blog in your browser.
 
-## Add new layouts
+#### Add new layouts
 
 ```bash
 hexo new post <title>

@@ -10,9 +10,9 @@ tags:
   - javascript
 ---
 
-# Decorators in JavaScript
 
-## Decorators in Python
+
+#### Decorators in Python
 
 In Python, decorators provide a very simple syntax for calling higher-order functions. A Python decorator is a function that takes another function, extending the behavior of the latter function without explicitly modifying it.
 
@@ -33,11 +33,11 @@ my function
 <function myfunc at 0xb76db17c>
 ```
 
-## ES2016 Decorators
+#### ES2016 Decorators
 
 An ES2016 decorator is an expression which returns function and can take a target, name and property descriptor as arguments.
 
-### Syntax
+##### Syntax
 
 ```js
 // es5
@@ -114,7 +114,7 @@ target — class that the property is a part of
 name — the name of the property the decorator is modifying  
 descriptor — property descriptor. Think: object passed to Object.defineProperty
 
-## Reference and Reading
+#### Reference and Reading
 
 1. [Exploring EcmaScript Decorators](https://medium.com/google-developers/exploring-es7-decorators-76ecb65fb841)
 

@@ -10,9 +10,7 @@ tags:
 - delegate
 ---
 
-# learn events
-
-## register
+#### register
 
 ```js
 myElement.onclick = functionA;

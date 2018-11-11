@@ -9,7 +9,7 @@ tags:
   - setInterval
 ---
 
-## Challenge 1
+#### Challenge 1
 
 print the following 2 messages after their corresponding delays.
 
@@ -42,7 +42,7 @@ for (let i = 0; i < 1e10; i++) {
 }
 ```
 
-## Challenge 2
+#### Challenge 2
 
 Write a script to print the message “Hello World” every second, but only 5 times. After 5 times, the script should print the message “Done” and let the Node process exit.
 
@@ -58,7 +58,7 @@ const itv = setInterval(() => {
 }, 1000);
 ```
 
-## Challenge 3
+#### Challenge 3
 
 only use `const`, can't use `let` or `var`.
 
@@ -81,7 +81,7 @@ const recur = (delay) => {
 recur(1);
 ```
 
-## Challenge 4
+#### Challenge 4
 
 Write a script to continuously print the message “_Hello World_” with the same varying delays concept as challenge #3, but this time, in groups of 5 messages per main-delay interval. Starting with a delay of 100ms for the first 5 messages, then a delay of 200ms for the next 5 messages, then 300ms, and so on.
 
