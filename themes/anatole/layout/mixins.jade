@@ -11,7 +11,7 @@ mixin make_post(item, is_detail)
 		else
 			.post-content
 				- var summary = item.summary || item.content
-				p!= truncate(strip_html(summary), {length: 160})
+				p!= truncate(strip_html(summary), {length: 200})
 		.post-footer: .meta
 			.info
 				i.fa.fa-calendar
@@ -20,7 +20,7 @@ mixin make_post(item, is_detail)
 					i.fa.fa-comment-o
 					a(href= url_for(item.path + "#comments"))= __('Comments')
 				if item.tags
-					i.fa.fa-tags
+					i.fa.fa-tag
 					- item.categories.sort('posts').each(function(item) {
 							a.tag(href=config.root + item.path, title= item.name)= item.name + " "
 					- });

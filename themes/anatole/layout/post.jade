@@ -1,6 +1,6 @@
-include mixins
-
 extends partial/layout
+
+include mixins
 
 block site_title
     != page.title + " · " + config.title
@@ -26,8 +26,9 @@ block content
       ul.clearfix
         if prev
           li.pre.pagbuttons
-            a.btn(role="navigation",href=url_for(prev), title=page.prev.title)!= __('prev_post')
+            a.btn(role="navigation",href=url_for(prev), title=page.prev.title)!= __('prev post')
         if next
           li.next.pagbuttons
-            a.btn(role="navigation",href=url_for(next), title=page.next.title)!= __('next_post')
-    include partial/comments
+            a.btn(role="navigation",href=url_for(next), title=page.next.title)!= __('next post')
+    if page.comments
+        include partial/comments

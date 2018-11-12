@@ -1,10 +1,10 @@
 extends partial/layout
 
 block site_title
-    != page.category + " · " + config.title
+    != page.projects + " · " + config.title
 
 block description
-    - var desc = 'Categories: ' + page.category + ' - ' + config.title;
+    - var desc = 'Projects: ' + page.projects + ' - ' + config.title;
     meta(name="description", content=desc)
 
 block content

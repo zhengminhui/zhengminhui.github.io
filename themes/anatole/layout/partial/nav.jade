@@ -16,15 +16,11 @@
       else
         a(href="/archives")= __('Archive')
     //- li
-    //-   if is_category()
-    //-     a.current(href="/categories")= __('Categories')
+    //-   if is_projects()
+    //-     a.current(href="/projects")= __('Projects')
     //-   else
-    //-     a(href="/categories")= __('Categories')
+    //-     a(href="/projects")= __('Projects')
     //- li
-    //-   if is_tag()
-    //-     a.current(href="/tags")= __('Tags')
-    //-   else
-    //-     a(href="/tags")= __('Tags')
   .information
     .back_btn
       li
