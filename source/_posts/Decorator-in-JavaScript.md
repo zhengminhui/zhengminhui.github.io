@@ -10,8 +10,6 @@ tags:
   - javascript
 ---
 
-
-
 #### Decorators in Python
 
 In Python, decorators provide a very simple syntax for calling higher-order functions. A Python decorator is a function that takes another function, extending the behavior of the latter function without explicitly modifying it.
