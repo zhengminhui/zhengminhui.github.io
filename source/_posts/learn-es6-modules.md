@@ -2,20 +2,20 @@
 title: learn ES6 modules
 date: 2018-04-07 17:30:40
 categories:
-- web
+  - web
 tags:
-- ECMAScript2015
-- es6
-- module
+  - ECMAScript2015
+  - es6
+  - module
 ---
 
 A module is Javascript code that automatically runs in **strict** mode with no way opt out.
 
 module and script are not the same.
 
-## import export
+#### import and export
 
-### 1. named export (several per module)
+##### 1. named export (several per module)
 
 ```javascript
 //------ lib.js ------
@@ -44,15 +44,15 @@ console.log(lib.square(11)); // 121
 console.log(lib.diag(4, 3)); // 5
 ```
 
-* syntax: import { identifiers } from './example.js' -> module specifier
+- syntax: import { identifiers } from './example.js' -> module specifier
 
-* the list of binding to imports is not a destructured object
+- the list of binding to imports is not a destructured object
 
-* the last one this is called _namespace_ import because the lib object does not exist inside the lib.js file and instead created to be used as a namespace object for all the exported members of lib.js.
+- the last one this is called _namespace_ import because the lib object does not exist inside the lib.js file and instead created to be used as a namespace object for all the exported members of lib.js.
 
-* Be sure to include /, ./ or ../ at the begining of the string representing the file for the best compatibility across browsers and node.js.
+- Be sure to include /, ./ or ../ at the beginning of the string representing the file for the best compatibility across browsers and node.js.
 
-* lib.js is only execute once, no matter how many import statements have been decalared. After the code to import the module excutes, the instantiated module is kept in **memory** and reused whenever another import statement reference to it. e.g.
+- lib.js is only execute once, no matter how many import statements have been declared. After the code to import the module executes, the instantiated module is kept in **memory** and reused whenever another import statement reference to it. e.g.
 
 ```javascript
 // just execute lib.js once
@@ -60,7 +60,7 @@ import { diag } from './lib.js';
 import { square } from './lib.js';
 ```
 
-* import/export must be used outside condition statement or functions.
+- import/export must be used outside condition statement or functions.
 
 ```javascript
 if (flag) {
@@ -72,7 +72,7 @@ import { diag } from './lib.js'; // syntax error
 }
 ```
 
-* ES6 import statement create _read-only_ bindings to variables, functions and classes. However you can use function to update in that module. and this change is automatically reflected on the imported name binding. e.g.
+- ES6 import statement create _read-only_ bindings to variables, functions and classes. However you can use function to update in that module. and this change is automatically reflected on the imported name binding. e.g.
 
 ```javascript
 export var name = 'Nico';
@@ -89,7 +89,7 @@ console.log(name); // Jack
 name = 'Nico'; // throw an error
 ```
 
-* renaming export and import
+- renaming export and import
 
 ```javascript
 export {sum as add};
@@ -100,7 +100,7 @@ import { add as sum } from './example.js';
 console.log(typeof add); // udefined
 ```
 
-### 2. default export (one per module)
+##### 2. default export (one per module)
 
 ```javascript
 //------ myFunc.js ------
@@ -128,7 +128,7 @@ import MyClass from 'MyClass';
 const inst = new MyClass();
 ```
 
-### 3. combine
+##### 3. combine
 
 you can use named export and default together
 
@@ -144,7 +144,7 @@ import sum, { name } from './example.js';
 import { default as sum, name } from './example.js';
 ```
 
-### 4. re-exporting
+##### 4. re-exporting
 
 ```js
 import {add} form './example.js';
@@ -162,7 +162,7 @@ export * from './example.js';
 
 note: by exporting everything, you're including default as well as any named exports.
 
-### 5. importing without bindings
+##### 5. importing without bindings
 
 Some modules may not export anthing; instead they might only modify object in the gloabal scope. _Import without bindings are most likely to be used to create polyfills and shims_.
 
@@ -176,9 +176,9 @@ let arr = [];
 arr.somethingFancy();
 ```
 
-## loading modules
+#### loading modules
 
-### 1. use <script> as `defer`
+##### 1. use <script> as `defer`
 
 ```html
 <!-- load a module JavaScript file -->
@@ -186,19 +186,17 @@ arr.somethingFancy();
 
 <!-- include a module inline -->
 <script type="module">
+  import { sum } from './example.js';
 
-import { sum } from "./example.js";
-
-let result = sum(1, 2);
-
+  let result = sum(1, 2);
 </script>
 ```
 
-* 'module' is not a content type like 'text/javascript', and browsers ignore `<script>` elements when type is unrecognized, providing good backwards-compatibility.
+- 'module' is not a content type like 'text/javascript', and browsers ignore `<script>` elements when type is unrecognized, providing good backwards-compatibility.
 
-* in above code, result is not exposed globally because it exists only withing the module and is therefore not added to window as a property.
+- in above code, result is not exposed globally because it exists only withing the module and is therefore not added to window as a property.
 
-* module sequence; `<script type="module">` always acts as if the `defer` attribute is applied.
+- module sequence; `<script type="module">` always acts as if the `defer` attribute is applied.
 
 ```html
 <!-- this will execute first -->
@@ -206,13 +204,13 @@ let result = sum(1, 2);
 
 <!-- this will execute second -->
 <script type="module">
-import { sum } from "./example.js";
+  import { sum } from './example.js';
 
-let result = sum(1, 2);
+  let result = sum(1, 2);
 </script>
 ```
 
-* synchronies and sequential: **modules are parsed completely first to dientify all `import`, each import statement then triggers a fetch (either from network or cache) and no module is executed until all import resources have been loaded and executed.**
+- synchronies and sequential: **modules are parsed completely first to dientify all `import`, each import statement then triggers a fetch (either from network or cache) and no module is executed until all import resources have been loaded and executed.**
 
 i. download and parse `module1.js` , recursive download and parse import in `module1.js`;
 
@@ -224,7 +222,7 @@ iiii. recursive execute `import` source in `module1.js`, then execute `module1.j
 
 iiiii. recursive execute `import` source in inline module, then execute inline module
 
-### 2. use <script> as `async`
+##### 2. use <script> as `async`
 
 ```html
 <!-- no guarantee which one of these will execute first -->
@@ -234,7 +232,7 @@ iiiii. recursive execute `import` source in inline module, then execute inline m
 
 the `async` causes the script file to be executed as soon as the file is compeleted downloaded and parsed. the order in document does not affect the order in which the scripts are excuted. The scripts are always executed as soon as they finish downloading without waiting for the containing document to finish parsing.
 
-### 3. use `Worker`
+##### 3. use `Worker`
 
 ```js
 // load script.js as a script
@@ -244,9 +242,9 @@ let worker = new Worker('script.js');
 let worker = new Worker('module.js', { type: 'module' });
 ```
 
-## Support for cyclic dependencies
+#### Support for cyclic dependencies
 
-### why support
+##### why support
 
 Cyclic dependencies are not inherently evil. Especially for objects, you sometimes even want this kind of dependency. For example, in some trees (such as DOM documents), parents refer to children and children refer back to parents. In libraries, you can usually avoid cyclic dependencies via careful design. In a large system, though, they can happen, especially during refactoring. Then it is very useful if a module system supports them, because the system doesn’t break while you are refactoring.
 

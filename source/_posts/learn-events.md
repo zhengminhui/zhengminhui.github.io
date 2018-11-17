@@ -1,16 +1,17 @@
 ---
-title: Learn Events
+title: Learn JavaScript Events
 date: 2018-04-15 16:47:42
 categories:
-- web
+  - web
 tags:
-- window
-- events
-- capture/bubbling
-- delegate
+  - window
+  - events
+  - capture/bubbling
+  - delegate
+  - javascript
 ---
 
-#### register
+#### Register
 
 ```js
 myElement.onclick = functionA;
@@ -28,21 +29,21 @@ both would run
 
 which should use
 
-* inline event handlers `<button onclick="bgChange()">Press me</button>` （don't use）
-* Event handler properties; element.onclick; better cross-browser compatibility (IE8)
-* DOM Level 2 Events; element.addEventListener('click', functionA); (IE9, can register multiple events，can be removed)
+- inline event handlers `<button onclick="bgChange()">Press me</button>` （don't use）
+- Event handler properties; element.onclick; better cross-browser compatibility (IE8)
+- DOM Level 2 Events; element.addEventListener('click', functionA); (IE9, can register multiple events，can be removed)
 
-## event objects
+#### event objects
 
 e/evt/event
 
 event.target
 
-## Preventing default behavior
+#### Preventing default behavior
 
 e.preventDefault();
 
-## Event bubbling
+#### Event bubbling
 
 Event bubbling and capture are two mechanisms that describe what happens when two handlers
 of the same event type are activated on one element.
@@ -64,7 +65,7 @@ element1.addEventListener('click', doSomething2, true); // fire at capture phase
 element2.addEventListener('click', doSomething, false);
 ```
 
-## Event delegation
+#### Event delegation
 
 if you want some code to run when you click on any one of a large number of child elements, you can set the event listener on their parent and have events that happen on them bubble up to their parent, rather than having to set the event listener on every child individually, especially children elements are frequently added and removed.
 
@@ -86,7 +87,11 @@ document.getElementById('parent-list').addEventListener('click', function(e) {
   // If it was a list item
   if (e.target && e.target.nodeName == 'LI') {
     // List item found!  Output the ID!
-    console.log('List item ', e.target.id.replace('post-', ''), ' was clicked!');
+    console.log(
+      'List item ',
+      e.target.id.replace('post-', ''),
+      ' was clicked!',
+    );
   }
 });
 
@@ -98,7 +103,7 @@ document.getElementById('parent-list').addEventListener('click', function(e) {
 });
 ```
 
-## related reading
+#### related reading
 
 mdn <https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_bubbling_and_capture>
 

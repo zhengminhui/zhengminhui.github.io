@@ -118,6 +118,6 @@ const greeting = (delay) => {
 greeting(100);
 ```
 
-### original Article
+#### original Article
 
 [JavaScript Timers: Everything you need to know](https://medium.freecodecamp.org/javascript-timers-everything-you-need-to-know-5f31eaa37162)

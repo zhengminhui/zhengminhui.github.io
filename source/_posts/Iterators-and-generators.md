@@ -2,17 +2,15 @@
 title: Iterators and generators
 date: 2018-05-01 01:19:28
 categories:
-- web
+  - web
 tags:
-- ECMAScript2015
-- es6
-- iterators
-- generators
+  - ECMAScript2015
+  - es6
+  - iterators
+  - generators
 ---
 
-# Iterators and Generators
-
-## Iterators
+#### Iterators
 
 Iterators are objects with a specific interface designed for iteration.
 
@@ -44,7 +42,7 @@ console.log(iterator.next()); // { done: false, value: 3 }
 console.log(iterator.next()); // { done: true, value: undefined }
 ```
 
-## Generators
+#### Generators
 
 A generator is a function that returns an iterator. Generator functions are indicated by an asterisk (_) after the `function` key word and use the `yield` keyword. It doesn't matter how many whitespace between `function` and `_`. On MDN, the`_`is right next to`function`, however in Zakas's book, the`_` is just before the function name.
 
@@ -77,7 +75,7 @@ console.log(iterator.next()); // { value: undefined, done: true }
 
 > create an arrow function that is also a generator is not possible.
 
-### Generator Object Method
+#### Generator Object Method
 
 Since generators are just functions. You can add generators to objects.
 
@@ -108,7 +106,7 @@ console.log(iterator.next()); // { value: 3, done: false }
 console.log(iterator.next()); // { value: undefined, done: true }
 ```
 
-## Iterable and for-of loops
+#### Iterable and for-of loops
 
 `iterable protocol`: The iterable protocol allows JavaScript objects to define or customize their iteration behavior, such as what values are looped over in a `for..of` construct.
 
@@ -116,16 +114,16 @@ An iterable is an object with a `Symbol.iterator` property.
 
 These are iterables:
 
-* Arrays and TypedArrays
-* Maps
-* Sets
-* Strings
-* `arguments`
-* DOM Elements `NodeList`
+- Arrays and TypedArrays
+- Maps
+- Sets
+- Strings
+- `arguments`
+- DOM Elements `NodeList`
 
 > All iterators created by generators are also iterables, because generators assign the `Symbol.iterator` property by default.
 
-### Accessing the default Iterator
+##### Accessing the default Iterator
 
 ```js
 let values = [1, 2, 3];
@@ -151,7 +149,7 @@ console.log(isIterable(new WeakMap())); // false
 console.log(isIterable(new WeakSet())); // false
 ```
 
-### Creating Iterator
+#### Creating Iterator
 
 ```js
 let collection = {
@@ -176,37 +174,37 @@ for (let x of collection) {
 // 3
 ```
 
-## Built-in Iterators
+#### Built-in Iterators
 
-### collection iterators
+#### collection iterators
 
-* `entries()`
-* `values()`
-* `keys()`
+- `entries()`
+- `values()`
+- `keys()`
 
-#### `entries()`
+##### `entries()`
 
-* array: [index, value]
-* set: [value, value]
-* map: [key, value]
+- array: [index, value]
+- set: [value, value]
+- map: [key, value]
 
-#### `values()`
+##### `values()`
 
-* array: value
-* set: value
-* map: value
+- array: value
+- set: value
+- map: value
 
-#### `keys()`
+##### `keys()`
 
-* array: index
-* set: value
-* map: key
+- array: index
+- set: value
+- map: key
 
-### Default Iterators for Collection Types
+#### Default Iterators for Collection Types
 
-* array: `values()`
-* set: `values()`
-* map: `entries()`
+- array: `values()`
+- set: `values()`
+- map: `entries()`
 
 ```js
 // destructuring and for-of loop
@@ -221,7 +219,7 @@ for (let [key, value] of data) {
 }
 ```
 
-* NodeList
+- NodeList
 
 ```js
 var divs = document.getElementsByTagName('div');
@@ -231,15 +229,15 @@ for (let div of divs) {
 }
 ```
 
-## Constructs accept iterables
+#### Constructs accept iterables
 
 Some other constructs in JS that use iterables are:
 
-* `for-of`
-* Destructuring of Arrays
-* The spread operator (`…`)
-* `Promise.all` and `Promise.race` accept iterables over Promises.
-* Maps and Sets
+- `for-of`
+- Destructuring of Arrays
+- The spread operator (`…`)
+- `Promise.all` and `Promise.race` accept iterables over Promises.
+- Maps and Sets
 
 ```js
 const map = new Map([[1, 'one'], [2, 'two']]);
@@ -250,9 +248,9 @@ set.has('c');
 // true
 ```
 
-## Advanced Iterator Functionality
+#### Advanced Iterator Functionality
 
-### passing arguments to Iterators
+##### passing arguments to Iterators
 
 The `next()` method also accepts a value which can be used to modify the internal state of the generator. A value passed to `next()` will be treated as the result of the last yield expression that paused the generator.
 
@@ -271,9 +269,9 @@ console.log(iterator.next(5)); // "{ value: 8, done: false }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-### Throw and Return
+#### Throw and Return
 
-* throw
+- throw
 
 Resume the execution of a generator by throwing an error into it and returns an object with two properties done and value.
 
@@ -296,7 +294,7 @@ g.throw(new Error('Something went wrong'));
 // { value: 42, done: false }
 ```
 
-* return
+- return
 
 Return the given value and finishes the generator.
 
@@ -314,7 +312,7 @@ console.log(iterator.next()); // "{ value: 1, done: false }"
 console.log(iterator.next()); // "{ value: undefined, done: true }"
 ```
 
-### Delegating generators
+#### Delegating generators
 
 ```js
 function* g1() {
@@ -369,9 +367,9 @@ console.log(iterator.next()); // {value: undefined, done: true},
 console.log(result); // "foo"
 ```
 
-## Asynchronous Task Running
+#### Asynchronous Task Running
 
-### tradition callback
+##### tradition callback
 
 ```js
 let fs = require('fs');
@@ -386,7 +384,7 @@ fs.readFile('config.json', function(err, contents) {
 });
 ```
 
-### Asynchronous task runner
+#### Asynchronous task runner
 
 ```js
 function run(taskDef) {
@@ -436,19 +434,19 @@ run(function*() {
 });
 ```
 
-### Pros and Cons
+#### Pros and Cons
 
 Pros:
 
-* Lazy Evaluation: It is calculated as we demand it;
-* Memory Efficient: We generate only the values that are needed. We can defer the computation till we need it.
+- Lazy Evaluation: It is calculated as we demand it;
+- Memory Efficient: We generate only the values that are needed. We can defer the computation till we need it.
 
 Cons:
 
-* Generators are one-time access only. Once you’ve exhausted all the values, you can’t iterate over it again. To generate the values again, you need to make a new generator object.
-* Generators do not allow random access as possible with arrays. Since the values are generated one by one, accessing a random value would lead to computation of values till that element. Hence, it’s not random access.
+- Generators are one-time access only. Once you’ve exhausted all the values, you can’t iterate over it again. To generate the values again, you need to make a new generator object.
+- Generators do not allow random access as possible with arrays. Since the values are generated one by one, accessing a random value would lead to computation of values till that element. Hence, it’s not random access.
 
-## Related Reading
+#### Related Reading
 
 1.  Nicholas C. Zakas, [Iterators and Generators](https://leanpub.com/understandinges6/read#leanpub-auto-iterators-and-generators)
 

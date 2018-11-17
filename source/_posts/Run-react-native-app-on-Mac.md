@@ -2,14 +2,14 @@
 title: Run React Native App on Mac
 date: 2018-02-05 01:05:04
 categories:
-- web
+  - web
 tags:
-- react
-- react native
-- xcode
+  - react
+  - react native
+  - Xcode
 ---
 
-1. make sure installed LATEST xcode on your mac. Be make sure check your app store to upgrade your xcode to latest version.
+1. make sure installed LATEST Xcode on your mac. Be make sure check your app store to upgrade your Xcode to latest version.
 2. install homebrew or nvm, so you can install node and manage your nodejs version.
 3. install nodejs and npm
 4. install watchman

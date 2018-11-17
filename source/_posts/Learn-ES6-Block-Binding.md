@@ -13,18 +13,18 @@ tags:
   - hoisting
 ---
 
-### Var declaration and hoisting
+#### Var declaration and hoisting
 
 Hoisting: Variable declarations using `var` are treated as if they are at the top of the **function** (or **global** scope, if declared outside of a function) regardless of where the actual declaration occurs.
 
-### Block-level Declarartion
+#### Block-level Declarartion
 
 Block-level declarations are those that declare variables that are inaccessible outside of a given block scope. Block scopes, also called lexical scopes, are created:
 
 1.  Inside of a function
 2.  Inside of a block (indicated by the `{` and `}` characters)
 
-#### Let
+##### Let
 
 `let` declarations are not hoisted to the top of the enclosing block.
 
@@ -47,7 +47,7 @@ if (condition) {
 }
 ```
 
-#### Const
+##### Const
 
 `const`, like `let` declarations, are block-level declarations.
 
@@ -88,7 +88,7 @@ person = {
 
 `const` prevents modification of the binding, not modification of the bound value.
 
-### The Temporal Dead Zone(TDZ)
+#### The Temporal Dead Zone(TDZ)
 
 A variable declared with either `let` or `const` cannot be accessed until after the declaration. Attempting to do so results in a reference error, even when using normally safe operations such as the `typeof` operation.
 
