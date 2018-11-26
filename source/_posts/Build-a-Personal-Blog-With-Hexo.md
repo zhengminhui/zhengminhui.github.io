@@ -104,3 +104,7 @@ hexo g
 hexo d
 hexo clean
 ```
+
+#### CNAME
+
+store the `CNAME` file in source so it won't be deleted automatically.
