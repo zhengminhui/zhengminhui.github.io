@@ -12,8 +12,6 @@ tags:
   - subscribe
 ---
 
-# Promises vs Observables
-
 ## Difference
 
 * Single value vs multiple values

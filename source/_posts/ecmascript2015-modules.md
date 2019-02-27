@@ -1,5 +1,5 @@
 ---
-title: learn ES6 modules
+title: ECMAScript2015 modules
 date: 2018-04-07 17:30:40
 categories:
   - web
@@ -230,7 +230,7 @@ iiiii. recursive execute `import` source in inline module, then execute inline m
 <script type="module" async src="module2.js"></script>
 ```
 
-the `async` causes the script file to be executed as soon as the file is compeleted downloaded and parsed. the order in document does not affect the order in which the scripts are excuted. The scripts are always executed as soon as they finish downloading without waiting for the containing document to finish parsing.
+the `async` causes the script file to be executed as soon as the file is completed downloaded and parsed. the order in document does not affect the order in which the scripts are executed. The scripts are always executed as soon as they finish downloading without waiting for the containing document to finish parsing.
 
 ##### 3. use `Worker`
 
@@ -242,58 +242,10 @@ let worker = new Worker('script.js');
 let worker = new Worker('module.js', { type: 'module' });
 ```
 
-#### Support for cyclic dependencies
-
-##### why support
-
-Cyclic dependencies are not inherently evil. Especially for objects, you sometimes even want this kind of dependency. For example, in some trees (such as DOM documents), parents refer to children and children refer back to parents. In libraries, you can usually avoid cyclic dependencies via careful design. In a large system, though, they can happen, especially during refactoring. Then it is very useful if a module system supports them, because the system doesn’t break while you are refactoring.
-
-I think this example from nodejs document can clearly explain cyclic dependencies. <https://nodejs.org/api/modules.html#modules_cycles>
-
-```js
-// a.js
-console.log('a starting');
-exports.done = false;
-const b = require('./b.js');
-console.log('in a, b.done = %j', b.done);
-exports.done = true;
-console.log('a done');
-
-// b.js
-console.log('b starting');
-exports.done = false;
-const a = require('./a.js');
-console.log('in b, a.done = %j', a.done);
-exports.done = true;
-console.log('b done');
-
-// main.js
-console.log('main starting');
-const a = require('./a.js');
-const b = require('./b.js');
-console.log('in main, a.done = %j, b.done = %j', a.done, b.done);
-```
-
-the output is
-
-```bash
-$ node main.js
-main starting
-a starting
-b starting
-in b, a.done = false
-b done
-in a, b.done = true
-a done
-in main, a.done = true, b.done = true
-```
-
-When `main.js` loads `a.js`, then `a.js` in turn loads `b.js`. At that point, `b.js` tries to load `a.js`. In order to prevent an **infinite loop**, an **unfinished copy** of the `a.js` exports object is returned to the `b.js` module. `b.js` then finishes loading, and its exports object is provided to the `a.js` module.
-
 #### related reading material
 
-1.  Nicholas C. Zakas, [Understanding ECMAScript 6](https://leanpub.com/understandinges6/read#leanpub-auto-encapsulating-code-with-modules)
+1. Nicholas C. Zakas, [Understanding ECMAScript 6](https://leanpub.com/understandinges6/read#leanpub-auto-encapsulating-code-with-modules)
 
-2.  Axel Rauschmayer, [Exploring ES6](http://exploringjs.com/es6/ch_modules.html)
+2. Axel Rauschmayer, [Exploring ES6](http://exploringjs.com/es6/ch_modules.html)
 
-3.  nodejs document, [Modules](https://nodejs.org/api/modules.html)
+3. nodejs document, [Modules](https://nodejs.org/api/modules.html)
