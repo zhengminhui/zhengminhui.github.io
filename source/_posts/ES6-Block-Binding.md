@@ -1,5 +1,5 @@
 ---
-title: Learn ES6 Block Binding
+title: ES6 Block Binding
 date: 2018-05-03 00:07:52
 categories:
   - web

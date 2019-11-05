@@ -1,5 +1,5 @@
 ---
-title: Learn JavaScript Events
+title: JavaScript Events
 date: 2018-04-15 16:47:42
 categories:
   - web
