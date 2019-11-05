@@ -45,8 +45,7 @@ highlight:
 
 # Category & Tag
 default_category: uncategorized
-category_map:
-  programming
+category_map: programming
   life
 tag_map:
 
@@ -91,7 +90,9 @@ deploy:
   repo: git@github.com:zhengminhui/zhengminhui.github.io.git
   branch: master
   message: 'update blog'
-  delete: false
+  name: zhengminhui
+  ignore_hidden: true # default is true
+  ignore_pattern: regexp # whatever file that matches the regexp will be ignored when deploying
 
 # SEO
 sitemap:
