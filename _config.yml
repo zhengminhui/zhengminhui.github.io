@@ -88,7 +88,7 @@ menu:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:wanzaiwanger/wanzaiwanger.github.io.git
+  repo: git@github.com:zhengminhui/zhengminhui.github.io.git
   branch: master
   message: 'update blog'
   delete: false
