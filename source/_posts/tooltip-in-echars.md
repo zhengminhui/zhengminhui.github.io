@@ -1,5 +1,5 @@
 ---
-title: 通过 confine 研究 tooltip 的实现过程 —— eCharts & zRender 源码
+title: 通过 confine 研究 tooltip 的实现过程
 date: 2019-11-05 23:09:13
 categories:
   - tech
