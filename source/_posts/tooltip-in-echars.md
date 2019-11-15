@@ -1,10 +1,9 @@
 ---
-title: 通过 confine 研究 tooltip 的实现过程
+title: 通过 confine 研究 tooltip 的实现过程 -- eCharts 源码解读
 date: 2019-11-05 23:09:13
 categories:
-  - tech
   - web
-  tags:
+tags:
   - echarts
   - zrender
   - tooltip
@@ -223,7 +222,7 @@ getOuterSize: function () {
 
 然后把 content 移动到新生成的坐标上，至此就完成了 confine 的功能。
 
-最后说一个看代码的心得，平常在实现一些公共 sdk 时，经常需要暴露一些 api，有的时候看到直接定义的是一个 array，然后调用方使用 `array[index]` 去获取某个方法。这样的坏处一个是数组的顺序无法保证，增、删之后 index 可能会变，给调用方造成影响。另外一个是，通过 index 获取时，对调用的方法名感知不到，不能确保使用的方法是否正确。 echarts 中的这个实现比较优雅，apiList 和真正暴露使用的 api 对象解耦。通过遍历 apiList， 产生一个包含 apiList 元素为 key 的对象，调用这个对象时，使用函数名，更直观，更友好。
+最后说一个看代码的心得，平常在实现一些公共 sdk 时，经常需要暴露一些 api，有的时候看到直接定义的是一个 array，然后调用方使用 `array[index]` 去获取某个方法。这样的坏处一个是数组的顺序无法保证，增、删之后 index 可能会变，给调用方造成影响。另外一个是，通过 index 获取时，对调用的方法名感知不到，不能确保使用的方法是否正确。 echarts 中的这个实现比较优雅，apiList 和真正暴露使用的 api 对象解耦。通过遍历 apiList， 产生一个包含 apiList 元素为 key 的对象，调用这个对象时，使用函数名，更直观，更友好，值得学习。
 
 ```js
 import * as zrUtil from 'zrender/src/core/util';
