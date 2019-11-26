@@ -1,8 +1,9 @@
 ---
 title: 2017年中总结
-date: 2017-06-06 23:20:20
 categories:
-- life
+  - life
+abbrlink: 543d8669
+date: 2017-06-06 23:20:20
 tags:
 ---
 

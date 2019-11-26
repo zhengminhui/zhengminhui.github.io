@@ -1,6 +1,5 @@
 ---
 title: 通过 confine 研究 tooltip 的实现过程 -- eCharts 源码解读
-date: 2019-11-05 23:09:13
 categories:
   - web
 tags:
@@ -8,6 +7,8 @@ tags:
   - zrender
   - tooltip
   - confine
+abbrlink: 9176cb10
+date: 2019-11-05 23:09:13
 ---
 
 实现业务需求时发现 tooltip 中呈现的内容比较多，当出现在边界时会出现一部分在可视范围以外。所幸 echarts 提供了一个 confine 配置给 tooltip，当为 true 时，可以强制使 tooltip 出现在 view 视图中。

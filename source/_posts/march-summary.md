@@ -1,8 +1,9 @@
 ---
 title: 三月总结
-date: 2018-04-02 09:24:38
 categories:
-- life
+  - life
+abbrlink: 3cf64c81
+date: 2018-04-02 09:24:38
 tags:
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: JavaScript Events
-date: 2018-04-15 16:47:42
 categories:
   - web
 tags:
@@ -9,6 +8,8 @@ tags:
   - capture/bubbling
   - delegate
   - javascript
+abbrlink: '96058034'
+date: 2018-04-15 16:47:42
 ---
 
 #### Register

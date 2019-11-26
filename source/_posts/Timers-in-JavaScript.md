@@ -1,12 +1,13 @@
 ---
 title: Timers in JavaScript
-date: 2018-10-20 16:55:28
 categories:
   - tech
 tags:
   - javascript
   - setTimeout
   - setInterval
+abbrlink: d1698058
+date: 2018-10-20 16:55:28
 ---
 
 #### Challenge 1

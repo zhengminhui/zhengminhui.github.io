@@ -1,8 +1,9 @@
 ---
 title: 华为面试
-date: 2017-01-23 15:53:12
 categories:
-- life
+  - life
+abbrlink: f822c036
+date: 2017-01-23 15:53:12
 tags:
 ---
 

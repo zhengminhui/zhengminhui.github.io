@@ -1,6 +1,5 @@
 ---
 title: Decorators in JavaScript
-date: 2018-10-20 17:14:24
 categories:
   - web
 tags:
@@ -8,6 +7,8 @@ tags:
   - es7
   - decorator
   - javascript
+abbrlink: 89c05b44
+date: 2018-10-20 17:14:24
 ---
 
 #### Decorators in Python

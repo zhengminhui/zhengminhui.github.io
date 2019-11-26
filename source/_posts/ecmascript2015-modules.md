@@ -1,12 +1,13 @@
 ---
 title: ECMAScript2015 modules
-date: 2018-04-07 17:30:40
 categories:
   - web
 tags:
   - ECMAScript2015
   - es6
   - module
+abbrlink: 646f8dec
+date: 2018-04-07 17:30:40
 ---
 
 A module is Javascript code that automatically runs in **strict** mode with no way opt out.

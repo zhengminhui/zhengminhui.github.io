@@ -1,6 +1,5 @@
 ---
 title: Iterators and generators
-date: 2018-05-01 01:19:28
 categories:
   - web
 tags:
@@ -8,6 +7,8 @@ tags:
   - es6
   - iterators
   - generators
+abbrlink: f1b3125a
+date: 2018-05-01 01:19:28
 ---
 
 #### Iterators

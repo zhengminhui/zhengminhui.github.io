@@ -1,6 +1,5 @@
 ---
 title: Node.js modules
-date: 2019-02-18 17:11:02
 categories:
   - web
 tags:
@@ -8,6 +7,8 @@ tags:
   - modules
   - exports
   - javascript
+abbrlink: c505c167
+date: 2019-02-18 17:11:02
 ---
 
 #### `module.exports` and `exports`

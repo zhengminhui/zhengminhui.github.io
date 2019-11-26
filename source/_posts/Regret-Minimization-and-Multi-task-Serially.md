@@ -1,8 +1,9 @@
 ---
 title: Regret Minimization and Multi-task Serially
-date: 2018-02-23 17:29:46
 categories:
-- life
+  - life
+abbrlink: eaf5670e
+date: 2018-02-23 17:29:46
 tags:
 ---
 

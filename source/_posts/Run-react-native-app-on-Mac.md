@@ -1,12 +1,13 @@
 ---
 title: Run React Native App on Mac
-date: 2018-02-05 01:05:04
 categories:
   - web
 tags:
   - react
   - react native
   - Xcode
+abbrlink: b18b9540
+date: 2018-02-05 01:05:04
 ---
 
 1. make sure installed LATEST Xcode on your mac. Be make sure check your app store to upgrade your Xcode to latest version.

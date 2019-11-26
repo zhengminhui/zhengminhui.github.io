@@ -1,8 +1,9 @@
 ---
 title: 新工作
-date: 2017-02-05 15:49:30
 categories:
-- life
+  - life
+abbrlink: fe5ddefd
+date: 2017-02-05 15:49:30
 tags:
 ---
 
