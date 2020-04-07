@@ -1,12 +1,13 @@
 ---
 title: JavaScript LeetCode Day 1
-date: 2020-04-06 19:49:38
 categories:
   - algorithm
 tags:
   - javascript
   - leetcode
   - algorithm
+abbrlink: f2317bbd
+date: 2020-04-06 19:49:38
 ---
 
 从今天开始，打算刷一下 LeetCode，复习一下算法和数据结构的基础知识。最近写业务较多，感觉需要换换脑子。再者毕竟今年行情不好，有备无患。
