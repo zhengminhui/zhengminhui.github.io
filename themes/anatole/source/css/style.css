@@ -694,6 +694,6 @@ a.btn {
   }
 
   .share {
-    display: grid;
+    display: flex;
   }
 }

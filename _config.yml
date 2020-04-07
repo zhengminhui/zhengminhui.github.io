@@ -3,11 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Minhui Zheng's blog
+title: Minhui's blog
 subtitle:
 description: Web Developer.
 author: Minhui Zheng
-language: en
+language:
+- zh
+- en
 timezone: America/Los_Angeles
 
 # URL
