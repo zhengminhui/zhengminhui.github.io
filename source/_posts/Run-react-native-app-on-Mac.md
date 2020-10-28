@@ -33,4 +33,4 @@ tool or in PATH
 
 this is because you did not set your xcode's command line tools, so your can go to `preference -> locations -> Command Line Tools` to select.
 
-![xcode command line tools](http://ww1.sinaimg.cn/large/71dc9500ly1fo5oy30mhdj21eo0w646p.jpg)
+![xcode command line tools](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/760e08710688460499ed894397ed156a~tplv-k3u1fbpfcp-watermark.image)
