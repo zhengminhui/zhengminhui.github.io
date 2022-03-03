@@ -2,9 +2,9 @@
 title: 三月读书
 categories:
   - life
+  - reading
 tags:
   - books
-  - reading
   - javascript
   - investment
 abbrlink: 23ae8ddc
