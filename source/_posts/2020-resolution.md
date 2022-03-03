@@ -2,6 +2,7 @@
 title: 2020 Resolution
 categories:
   - life
+  - summary
 tags:
   - resolution
 abbrlink: 38799c5f
