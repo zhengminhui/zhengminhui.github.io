@@ -8,18 +8,22 @@ subtitle:
 description: Web Developer.
 author: Minhui Zheng
 language:
-- zh
-- en
+  - zh
+  - en
 timezone: America/Los_Angeles
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://zhengminhui.github.io
 root: /
-permalink: :abbrlink.html
+permalink: :year/:month/:day/:abbrlink/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 abbrlink:
-  alg: crc32  # 算法：crc16(default) and crc32
-  rep: hex    # 进制：dec(default) and hex
+  alg: crc32 # 算法：crc16(default) and crc32
+  rep: hex # 进制：dec(default) and hex
 
 # Directory
 source_dir: source
@@ -93,7 +97,7 @@ deploy:
   type: git
   repo: git@github.com:zhengminhui/zhengminhui.github.io.git
   branch: master
-  message: 'update blog'
+  message: "update blog"
   name: zhengminhui
   ignore_hidden: true # default is true
   ignore_pattern: regexp # whatever file that matches the regexp will be ignored when deploying
@@ -103,6 +107,3 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
-
-
-
