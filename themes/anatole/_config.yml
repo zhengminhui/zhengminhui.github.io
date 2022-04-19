@@ -1,22 +1,10 @@
 # Blog
 keywords: Hexo,HTML,JavaScript,CSS,Frontend,Angular,React,Linux
 author: Minhui Zheng, mattzhengjob@gmail.com
-description: 🖖 Live long and prosper. 
-avatar: https://secure.gravatar.com/avatar/c85f5cf8f290742d2e21e929f89a5215?s=200
+description: 🖖 Live long and prosper.
 
 # Social Accounts
 github: zhengminhui
 weibo: alandwhatever
 instagram: wanzaiwanger
 twitter: wanzaiwanger
-
-# Comment
-valine:
-  enable: true # if you want use valine, please set enable: true
-  appid:  ed7iCQax3fVhwDVnoOB6ki1i-gzGzoHsz # your leancloud appid
-  appkey: 2l1dqX729jjysNfG5uK0f0yH # your leancloud appkey
-  notify: false # true/false:mail notify !!!Test,Caution. https://github.com/xCss/Valine/wiki/Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE
-  verify: false # true/false:verify code
-  avatar: retro # avatar style https://github.com/xCss/Valine/wiki/avatar-setting-for-valine
-  placeholder: '_(:3 」∠ )_' # comment box placeholder
-  lang: 'en'

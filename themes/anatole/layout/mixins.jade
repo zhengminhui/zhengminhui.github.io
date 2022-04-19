@@ -16,9 +16,6 @@ mixin make_post(item, is_detail)
 			.info
 				i.fa.fa-calendar
 				span.date= date(item.date, 'YYYY-MM-DD')
-				if theme.duoshuo || theme.disqus
-					i.fa.fa-comment-o
-					a(href= url_for(item.path + "#comments"))= __('Comments')
 				if item.tags
 					i.fa.fa-tag
 					- item.categories.sort('posts').each(function(item) {

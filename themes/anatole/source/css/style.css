@@ -6,7 +6,8 @@ html {
 
 body {
   color: rgba(0, 0, 0, 0.5);
-  font-family: 'PingHei', 'PingFang SC', Helvetica Neue, 'Work Sans', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+  font-family: "PingHei", "PingFang SC", Helvetica Neue, "Work Sans",
+    "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
   font-size: 15px;
   width: 100%;
   margin: 0 auto 30px auto;
@@ -23,18 +24,20 @@ a {
   text-decoration: none;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
   opacity: 1;
-  -webkit-transition: all .15s linear;
-  -moz-transition: all .15s linear;
-  -o-transition: all .15s linear;
-  -ms-transition: all .15s linear;
-  transition: all .15s linear;
+  -webkit-transition: all 0.15s linear;
+  -moz-transition: all 0.15s linear;
+  -o-transition: all 0.15s linear;
+  -ms-transition: all 0.15s linear;
+  transition: all 0.15s linear;
   color: #424242;
 }
 
-a:hover, a:active {
-  color: #4786D6;
+a:hover,
+a:active {
+  color: #4786d6;
 }
 
 /*basic styles ends*/
@@ -136,28 +139,20 @@ a:hover, a:active {
   padding-right: 20px;
 }
 .page-top .nav a {
-  color: #5A5A5A;
+  color: #5a5a5a;
 }
 .page-top .nav a:hover {
-  color: #4786D6;
+  color: #4786d6;
 }
 .page-top .nav a.current {
-  color: #5A5A5A;
+  color: #5a5a5a;
   padding-bottom: 22px;
-  border-bottom: 1px solid #5A5A5A;
+  border-bottom: 1px solid #5a5a5a;
 }
 .page-top .information {
   float: right;
   padding-top: 12px;
   padding-right: 20px;
-}
-.page-top .information .avatar {
-  float: right;
-}
-.page-top .information .avatar img {
-  width: 32px;
-  height: 32px;
-  border-radius: 300px;
 }
 .page-top .information .back_btn {
   float: left;
@@ -225,11 +220,11 @@ a:hover, a:active {
   color: #565654;
 }
 .sidebar .social-links a:hover {
-  color: #4786D6;
+  color: #4786d6;
 }
 
 .post {
-  background-color: #FFF;
+  background-color: #fff;
   margin: 30px;
 }
 .post .post-title h1 {
@@ -266,22 +261,22 @@ a:hover, a:active {
 .post .post-content a {
   text-decoration: none;
   letter-spacing: 1px;
-  color: #4786D6;
+  color: #4786d6;
 }
 .post .post-content a:hover {
-  color: #2F69B3;
+  color: #2f69b3;
 }
 .post .post-content h3 {
-  color: #5F5F5F;
+  color: #5f5f5f;
   font-size: 22px;
   font-weight: 600;
 }
 .post .post-content h4 {
-  color: #5F5F5F;
+  color: #5f5f5f;
   font-size: 16px;
 }
 .post .post-content h5 {
-  color: #5F5F5F;
+  color: #5f5f5f;
   font-size: 14px;
 }
 .post .post-footer {
@@ -306,7 +301,7 @@ a:hover, a:active {
   padding-right: 10px;
 }
 .post .post-footer .meta a:hover {
-  color: #4786D6;
+  color: #4786d6;
 }
 .post .post-footer .meta i {
   margin-right: 6px;
@@ -399,10 +394,10 @@ a:hover, a:active {
   background: #fff;
 }
 .footer a {
-  color: #A6A6A6;
+  color: #a6a6a6;
 }
 .footer a:hover {
-  color: #4786D6;
+  color: #4786d6;
 }
 
 /*for archive*/
@@ -433,13 +428,13 @@ a:hover, a:active {
 }
 .list-with-title .listing .listing-post .post-time {
   float: right;
-  color: #C5C5C5;
+  color: #c5c5c5;
 }
 .list-with-title .listing .listing-post a {
-  color: #8F8F8F;
+  color: #8f8f8f;
 }
 .list-with-title .listing .listing-post a:hover {
-  color: #4786D6;
+  color: #4786d6;
 }
 
 /* share */
@@ -452,7 +447,7 @@ a:hover, a:active {
   width: 32px;
   height: 32px;
   border-radius: 300px;
-  background-color: #3E3E3E;
+  background-color: #3e3e3e;
   margin-right: 5px;
 }
 .evernote a {
@@ -461,7 +456,7 @@ a:hover, a:active {
   font-size: 12px;
 }
 .evernote a:hover {
-  color: #ED6243;
+  color: #ed6243;
   padding: 11px;
 }
 
@@ -469,7 +464,7 @@ a:hover, a:active {
   width: 32px;
   height: 32px;
   border-radius: 300px;
-  background-color: #ED6243;
+  background-color: #ed6243;
   margin-right: 5px;
 }
 .weibo a {
@@ -477,14 +472,14 @@ a:hover, a:active {
   padding: 9px;
 }
 .weibo a:hover {
-  color: #BD4226;
+  color: #bd4226;
 }
 
 .twitter {
   width: 32px;
   height: 32px;
   border-radius: 300px;
-  background-color: #59C0FD;
+  background-color: #59c0fd;
   margin-right: 5px;
 }
 .twitter a {
@@ -492,7 +487,7 @@ a:hover, a:active {
   padding: 9px;
 }
 .twitter a:hover {
-  color: #4B9ECE;
+  color: #4b9ece;
 }
 
 /* about */
@@ -514,11 +509,6 @@ a:hover, a:active {
   cursor: pointer;
 }
 
-/* 评论样式 */
-.comment-count {
-  color: #666;
-}
-
 .tab-community {
   color: #666;
 }
@@ -532,11 +522,6 @@ a:hover, a:active {
   max-width: 100px;
   padding-left: 40px;
   float: left;
-}
-
-/* 默认评论样式 */
-#fb_comments_container {
-  margin: 30px;
 }
 
 /* 按钮样式 */
@@ -633,7 +618,7 @@ a.btn {
   padding: 0.5em 1.25em;
   outline: 0;
   color: #fff;
-  background: #3CBD10;
+  background: #3cbd10;
   font-size: 14px;
   text-align: center;
   text-decoration: none;
