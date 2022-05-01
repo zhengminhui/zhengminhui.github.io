@@ -8,10 +8,6 @@
   background-color: #f8f8f8;
 }
 
-.post-content .tip br {
-  /**display: none**/
-}
-
 .post-content .tip:before {
   position: absolute;
   top: 14px;
@@ -446,6 +442,12 @@ tt {
 #SwfStore_farbox_0 {
   height: 0;
   overflow: hidden;
+}
+
+.post-title h1,
+h2,
+h3 {
+  text-transform: capitalize !important;
 }
 
 @media screen and (max-width: 320px) {
