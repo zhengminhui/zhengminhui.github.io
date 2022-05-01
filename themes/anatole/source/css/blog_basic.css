@@ -449,10 +449,3 @@ h2,
 h3 {
   text-transform: capitalize !important;
 }
-
-@media screen and (max-width: 320px) {
-  #fb_comments .c_content,
-  #fb_comments .comment_body {
-    margin-left: 57px;
-  }
-}
