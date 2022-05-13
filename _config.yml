@@ -108,7 +108,7 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
 
-  # Extensions
+# Extensions
 plugins: hexo-generator-feed
 #Feed Atom
 feed:
