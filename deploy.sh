@@ -1,5 +1,6 @@
 hexo g
-mv .gitignore favicon.ico public/
+cp .gitignore favicon.ico public/
+echo "cp .gitignore favicon.ico public/"
 hexo d
 hexo clean
 rm -rf .deploy_git
