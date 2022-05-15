@@ -112,8 +112,10 @@ baidusitemap:
 plugins: hexo-generator-feed
 #Feed Atom
 feed:
-  type: atom
-  path: atom.xml
+  enable: true
+  type: rss2
+  path: rss2.xml
   limit: 20
-  icon: /images/favicon.ico
-
+  order_by: -date
+  icon: /images/favicon16.png
+  autodiscovery: true
