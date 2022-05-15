@@ -113,8 +113,8 @@ plugins: hexo-generator-feed
 #Feed Atom
 feed:
   enable: true
-  type: rss2
-  path: rss2.xml
+  type: atom
+  path: atom.xml
   limit: 20
   order_by: -date
   icon: /images/favicon16.png
