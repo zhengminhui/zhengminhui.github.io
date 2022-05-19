@@ -431,6 +431,7 @@ tt {
   background: #f7f7f9;
   color: #d14;
   border-radius: 2px;
+  overflow-wrap: break-word;
 }
 
 .toc {
