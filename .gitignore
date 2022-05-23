@@ -4,3 +4,4 @@ node_modules/
 .vscode
 _hide
 source/.obsidian/
+db.json
