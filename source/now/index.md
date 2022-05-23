@@ -1,5 +1,5 @@
 ---
-title: now
+title: Now
 date: 2022-05-23 14:29:22
 ---
 
