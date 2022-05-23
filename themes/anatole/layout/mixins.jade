@@ -19,17 +19,11 @@ mixin make_post(item, is_detail)
 				if item.tags
 					i.fa.fa-tag
 					- item.categories.sort('posts').each(function(item) {
-							a.tag(href=config.root + item.path, title= item.name)= item.name + " "
+						a.tag(href=config.root + item.path, title= item.name)= item.name + " "
 					- });
 					- item.tags.sort('posts').each(function(item) {
-							a.tag(href=config.root + item.path, title= item.name)= item.name + " "
+						a.tag(href=config.root + item.path, title= item.name)= item.name + " "
 					- });
-					//- if is_detail
-					//- 	span#busuanzi_container_page_pv
-					//- 	|  Total 
-					//- 	span#busuanzi_value_page_pv
-					//- 		i.fa.fa-spinner.fa-spin
-					//- 	|  views.
 
 mixin make_pager()
 	- var prev = page.prev_link
@@ -62,7 +56,7 @@ mixin postList()
 					| </ul><div class="listing-title">
 					!= year
 					| </div><ul class="listing">
-			
+
 			.listing-item
 				.listing-post
 					a(href= url_for(item.path), title= item.title)= item.title

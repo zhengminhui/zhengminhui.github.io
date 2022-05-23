@@ -327,8 +327,9 @@ h6 {
 }
 
 img {
-  max-width: 100%;
+  max-width: 61.8%;
   height: auto;
+  border-radius: 2%;
 }
 
 p,
@@ -389,9 +390,10 @@ hr {
 
 blockquote {
   box-sizing: border-box;
-  margin: 1.6em 0 1.6em -2.2em;
-  padding: 0 0 0 1.6em;
+  margin: 1.6em 0 1.6em -0.2em;
+  padding: 0.6em 0 0.6em 1.6em;
   border-left: #4a4a4a 0.4em solid;
+  background-color: oldlace;
 }
 
 blockquote p {
@@ -440,13 +442,14 @@ tt {
   padding: 10px 30px;
 }
 
-#SwfStore_farbox_0 {
-  height: 0;
-  overflow: hidden;
-}
-
 .post-title h1,
 h2,
 h3 {
   text-transform: capitalize !important;
+}
+
+@media screen and (max-width: 960px) {
+  img {
+    max-width: 100%;
+  }
 }
