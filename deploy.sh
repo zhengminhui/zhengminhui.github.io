@@ -1,4 +1,5 @@
 hexo g
+cp ./readme.md ./public/
 hexo d
 hexo clean
 rm -rf .deploy_git
