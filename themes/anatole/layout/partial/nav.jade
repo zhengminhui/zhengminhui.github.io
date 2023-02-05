@@ -5,11 +5,11 @@
         a.current(href="/")= __('Home')					
       else
         a(href="/")= __('Home')	
-    li
-      if is_current('now')
-        a.current(href="/now")= __('Now')			
-      else
-        a(href="/now")= __('Now')
+    //- li
+    //-   if is_current('now')
+    //-     a.current(href="/now")= __('Now')			
+    //-   else
+    //-     a(href="/now")= __('Now')
     li
       if is_archive()
         a.current(href="/archives")= __('Archive')
