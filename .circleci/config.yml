@@ -32,7 +32,7 @@ jobs:
           command: |
             git config --global user.name "zhengminhui"
             git config --global user.email "zhmh1025@hotmail.com"
-      - run: hexo d
+            echo 'successfuly finished'
 workflows:
   deploy-blog-workflow:
     jobs:
