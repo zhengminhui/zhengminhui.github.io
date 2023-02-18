@@ -33,7 +33,7 @@ jobs:
       - run: 
           name: generate
           command: |
-            cd CIRCLE_WORKING_DIRECTORY
+            cd $CIRCLE_WORKING_DIRECTORY
             hexo generate
       - run: 
           name: deploy static
