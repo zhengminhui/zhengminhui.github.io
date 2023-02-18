@@ -1,41 +1,15 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
     docker:
-      - image: node:18
+      - image: node:latest
+    working_directory: ~/repo
     steps:
       - checkout
-      - run:
-          name: Update NPM
-          command: sudo npm install -g npm@latest
-      - run:
-          name: Install Hexo CLI
-          command: |
-            sudo npm install hexo-cli -g
-      - restore_cache:
-          key: node-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install NPM packages
-          command: npm ci
-      - save_cache:
-          key: node-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: Generate blog
-          command: hexo generate
-      - persist_to_workspace:
-          root: public
-          paths:
-            - "*"
+      - run: npm install
+      - run: hexo generate
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   deploy-blog-workflow:
     jobs:
