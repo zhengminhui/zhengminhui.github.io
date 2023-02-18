@@ -6,40 +6,33 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
-      - image: node:18
-    resource_class: large
-    parallelism: 10
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+      - image: circleci/node:19
     steps:
       - checkout
-      - restore_cache:
-          name: Restore pnpm Package Cache
-          keys:
-            - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
       - run:
-          name: Install pnpm package manager
-          command: |
-            curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+          name: Update NPM
+          command: sudo npm install -g npm@latest
       - run:
           name: Install Hexo CLI
           command: |
-            pnpm install hexo-cli -g
+            sudo npm install hexo-cli -g
+      - restore_cache:
+          key: node-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: Install Dependencies
-          command: |
-            pnpm install
+          name: Install NPM packages
+          command: npm ci
       - save_cache:
-          name: Save pnpm Package Cache
-          key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+          key: node-cache-{{ checksum "package-lock.json" }}
           paths:
-            - node_modules
+            - ./node_modules
       - run:
-          name: "Generate blog"
-          command: "hexo generate"
+          name: Generate blog
+          command: hexo generate
+      - persist_to_workspace:
+          root: public
+          paths:
+            - "*"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
