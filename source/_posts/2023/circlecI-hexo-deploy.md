@@ -64,4 +64,6 @@ workflows:
 
 ```
 
+I use pnpm.
+
 When this blog publish to my blog, it means I finished.
