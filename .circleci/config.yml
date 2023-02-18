@@ -32,7 +32,9 @@ jobs:
             echo 'start deploy'
       - run: 
           name: generate
-          command: hexo generate
+          command: |
+            cd $CIRCLE_WORKING_DIRECTORY/zhengminhui.github.io 
+            hexo generate
       - run: 
           name: deploy static
           command: hexo deploy
