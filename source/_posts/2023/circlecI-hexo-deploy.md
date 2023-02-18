@@ -39,6 +39,10 @@ jobs:
           command: |
             curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
       - run:
+          name: Install Hexo CLI
+          command: |
+            pnpm install hexo-cli -g
+      - run:
           name: Install Dependencies
           command: |
             pnpm install
@@ -57,6 +61,7 @@ workflows:
   deploy-blog-workflow:
     jobs:
       - build
+
 ```
 
 When this blog publish to my blog, it means I finished.
