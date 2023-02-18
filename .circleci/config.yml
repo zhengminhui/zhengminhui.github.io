@@ -21,7 +21,7 @@ jobs:
           command: |
             npm install hexo-cli -g
       - attach_workspace:
-          at: public
+          at: $CIRCLE_WORKING_DIRECTORY/public
       - add_ssh_keys:
           fingerprints:
             - "7e:0d:09:19:ed:19:95:d6:2f:b4:72:03:63:d0:4b:5f"
