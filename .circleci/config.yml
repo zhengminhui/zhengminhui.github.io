@@ -31,6 +31,7 @@ jobs:
             git config --global user.name "zhengminhui"
             git config --global user.email "zhmh1025@hotmail.com"
             npm run deploy
+            echo pwd
             echo 'successfuly finished'
 workflows:
   deploy-blog-workflow:
