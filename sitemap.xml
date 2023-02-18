@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhengminhui.github.io/2023/circleci-hexo-blog/</loc>
-    
-    <lastmod>2023-02-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhengminhui.github.io/categories/index.html</loc>
     
     <lastmod>2023-02-15</lastmod>
@@ -407,15 +398,6 @@
   </url>
   
   <url>
-    <loc>https://zhengminhui.github.io/2022/hiking-north-lingshan/</loc>
-    
-    <lastmod>2023-02-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhengminhui.github.io/2022/writing-on-monday/</loc>
     
     <lastmod>2023-02-03</lastmod>
@@ -434,6 +416,15 @@
   </url>
   
   <url>
+    <loc>https://zhengminhui.github.io/2022/fake-foreigner/</loc>
+    
+    <lastmod>2023-02-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhengminhui.github.io/2022/2022-30-sep-w4/</loc>
     
     <lastmod>2023-02-03</lastmod>
@@ -443,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://zhengminhui.github.io/2022/fake-foreigner/</loc>
+    <loc>https://zhengminhui.github.io/2022/hiking-north-lingshan/</loc>
     
     <lastmod>2023-02-03</lastmod>
     
@@ -524,7 +515,7 @@
   </url>
   
   <url>
-    <loc>https://zhengminhui.github.io/2022/has-man-a-future/</loc>
+    <loc>https://zhengminhui.github.io/2022/productivity-and-chicken-soup/</loc>
     
     <lastmod>2023-02-03</lastmod>
     
@@ -533,7 +524,7 @@
   </url>
   
   <url>
-    <loc>https://zhengminhui.github.io/2022/productivity-and-chicken-soup/</loc>
+    <loc>https://zhengminhui.github.io/2022/has-man-a-future/</loc>
     
     <lastmod>2023-02-03</lastmod>
     
@@ -569,6 +560,15 @@
   </url>
   
   <url>
+    <loc>https://zhengminhui.github.io/2022/rubber-and-betel-nut/</loc>
+    
+    <lastmod>2023-02-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhengminhui.github.io/2022/fear-of-missing-out/</loc>
     
     <lastmod>2023-02-03</lastmod>
@@ -579,15 +579,6 @@
   
   <url>
     <loc>https://zhengminhui.github.io/2022/end-of-july/</loc>
-    
-    <lastmod>2023-02-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengminhui.github.io/2022/rubber-and-betel-nut/</loc>
     
     <lastmod>2023-02-03</lastmod>
     
@@ -722,7 +713,7 @@
   </url>
   
   <url>
-    <loc>https://zhengminhui.github.io/2018/646f8dec/</loc>
+    <loc>https://zhengminhui.github.io/2018/f1b3125a/</loc>
     
     <lastmod>2023-02-03</lastmod>
     
@@ -731,7 +722,7 @@
   </url>
   
   <url>
-    <loc>https://zhengminhui.github.io/2018/f1b3125a/</loc>
+    <loc>https://zhengminhui.github.io/2018/646f8dec/</loc>
     
     <lastmod>2023-02-03</lastmod>
     
@@ -949,6 +940,20 @@
   </url>
   
   <url>
+    <loc>https://zhengminhui.github.io/tags/frontend/</loc>
+    <lastmod>2023-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhengminhui.github.io/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</loc>
+    <lastmod>2023-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhengminhui.github.io/tags/monotasking/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -964,20 +969,6 @@
   
   <url>
     <loc>https://zhengminhui.github.io/tags/productivity/</loc>
-    <lastmod>2023-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengminhui.github.io/tags/frontend/</loc>
-    <lastmod>2023-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengminhui.github.io/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1082,13 +1073,6 @@
   </url>
   
   <url>
-    <loc>https://zhengminhui.github.io/tags/module/</loc>
-    <lastmod>2023-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhengminhui.github.io/tags/iterators/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -1097,6 +1081,13 @@
   
   <url>
     <loc>https://zhengminhui.github.io/tags/generators/</loc>
+    <lastmod>2023-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhengminhui.github.io/tags/module/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1215,41 +1206,6 @@
   </url>
   
   <url>
-    <loc>https://zhengminhui.github.io/tags/chatgpt/</loc>
-    <lastmod>2023-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengminhui.github.io/tags/circleci/</loc>
-    <lastmod>2023-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengminhui.github.io/tags/deploy/</loc>
-    <lastmod>2023-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengminhui.github.io/tags/workspace/</loc>
-    <lastmod>2023-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhengminhui.github.io/tags/web-development/</loc>
-    <lastmod>2023-02-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhengminhui.github.io/tags/leadership/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -1286,6 +1242,27 @@
   
   <url>
     <loc>https://zhengminhui.github.io/tags/closure/</loc>
+    <lastmod>2023-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhengminhui.github.io/tags/chatgpt/</loc>
+    <lastmod>2023-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhengminhui.github.io/tags/workspace/</loc>
+    <lastmod>2023-02-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhengminhui.github.io/tags/web-development/</loc>
     <lastmod>2023-02-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

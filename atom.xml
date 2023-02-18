@@ -6,7 +6,7 @@
   <link href="https://zhengminhui.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhengminhui.github.io/"/>
-  <updated>2023-02-18T07:21:17.752Z</updated>
+  <updated>2023-02-12T00:55:34.289Z</updated>
   <id>https://zhengminhui.github.io/</id>
   
   <author>
@@ -15,37 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Use circleci to build an deploy my hexo blog</title>
-    <link href="https://zhengminhui.github.io/2023/circleci-hexo-blog/"/>
-    <id>https://zhengminhui.github.io/2023/circleci-hexo-blog/</id>
-    <published>2023-02-18T18:20:25.000Z</published>
-    <updated>2023-02-18T07:21:17.752Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>in project setting, ssh keys, authorize circleci with github.</li></ol><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use the latest 2.1 version of CircleCI pipeline process engine.</span></span><br><span class="line"><span class="comment"># See: https://circleci.com/docs/2.0/configuration-reference</span></span><br><span class="line"><span class="attr">version:</span> <span class="number">2.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define a job to be invoked later in a workflow.</span></span><br><span class="line"><span class="comment"># See: https://circleci.com/docs/2.0/configuration-reference/#jobs</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">docker:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">node:18</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">checkout</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">Update</span> <span class="string">NPM</span></span><br><span class="line">          <span class="attr">command:</span> <span class="string">sudo</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">npm@latest</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Hexo</span> <span class="string">CLI</span></span><br><span class="line">          <span class="attr">command:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            sudo npm install hexo-cli -g</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">restore_cache:</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">node-cache-&#123;&#123;</span> <span class="string">checksum</span> <span class="string">&quot;package-lock.json&quot;</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">Install</span> <span class="string">NPM</span> <span class="string">packages</span></span><br><span class="line">          <span class="attr">command:</span> <span class="string">npm</span> <span class="string">ci</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">save_cache:</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">node-cache-&#123;&#123;</span> <span class="string">checksum</span> <span class="string">&quot;package-lock.json&quot;</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">paths:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./node_modules</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">Generate</span> <span class="string">blog</span></span><br><span class="line">          <span class="attr">command:</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">persist_to_workspace:</span></span><br><span class="line">          <span class="attr">root:</span> <span class="string">public</span></span><br><span class="line">          <span class="attr">paths:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&quot;*&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Invoke jobs via workflows</span></span><br><span class="line"><span class="comment"># See: https://circleci.com/docs/2.0/configuration-reference/#workflows</span></span><br><span class="line"><span class="attr">workflows:</span></span><br><span class="line">  <span class="attr">deploy-blog-workflow:</span></span><br><span class="line">    <span class="attr">jobs:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">build</span></span><br></pre></td></tr></table></figure><p>I use pnpm.</p><p>When this blog publish to my blog, it means I finished.</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;in project setting, ssh keys, authorize circleci with github.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&quot;highlight yml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter</summary>
-      
-    
-    
-    
-    <category term="tech" scheme="https://zhengminhui.github.io/categories/tech/"/>
-    
-    
-    <category term="hexo" scheme="https://zhengminhui.github.io/tags/hexo/"/>
-    
-    <category term="circleci" scheme="https://zhengminhui.github.io/tags/circleci/"/>
-    
-    <category term="deploy" scheme="https://zhengminhui.github.io/tags/deploy/"/>
-    
-  </entry>
   
   <entry>
     <title>Chatgpt 和克莱因壶</title>
@@ -529,6 +498,31 @@
       
     <summary type="html">&lt;p&gt;这周听了两期播客，都比较长，做个总结。其中有诸多细节，引人入胜，还是推荐大家去听。&lt;/p&gt;
 &lt;p&gt;第一个是“橡皮股票危机”。1908 年福特推出了 T 型车，将汽车从奢侈品变成了大众消费品，汽车数量激增。橡胶（当时称作橡皮）作为轮胎的重要原料，随之需求量大涨。晚清中国没有橡</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>fomo</title>
+    <link href="https://zhengminhui.github.io/2022/fear-of-missing-out/"/>
+    <id>https://zhengminhui.github.io/2022/fear-of-missing-out/</id>
+    <published>2022-07-16T22:09:21.000Z</published>
+    <updated>2023-02-03T07:15:29.230Z</updated>
+    
+    <content type="html"><![CDATA[<p>这周听了一期播客，关于即时通讯软件和日常工作的效率，题材不错，一个小时。两位嘉宾都是飞书的经理，我想这期节目也算半个产品推荐水文吧。抛开推广的部分，聊聊我的想法。</p><p>前段时间 web3 很火，几个词高频出现。一个是 fud： fear, uncertainty and doubt，一个是 fomo： fear of missing out。比如 BTC 或者股票低价的时候，不敢买，因为你 fud，听上去你犯了大错，你慌了，然后行情涨了，韭菜蜂拥而至，害怕再次错过机会，开始疯狂买入，fomo。</p><p>在 IM 里 fomo 是什么场景呢？你被拉入一个群聊，可能是老板知会你什么事情，可能是同事需要你解决一个 bug，完事之后这个群就成了一个负担，以后这里对我还有没有用，会不会遗漏什么重要信息，我退出了别人会怎么看我？久而久之，群聊越来越多，红点越来越多，你害怕退出，也害怕错过消息。</p><p>我也观察到了这种现象，不论是在微信还是 slack，每天常用的群聊、频道屈指可数，但是海量的群主动或被动地分散我们的注意力。节目里提到信噪比，大部分的群聊都是噪声，和工作生活无关。在这个信息过载的时代，还是多追求一些 inspiration，而不是 information，真正重要的消息会来找你，不用担心。我最近也开始退出无关的频道，折叠微信群聊，删掉手机上很久都没有打开的软件，珍惜自己的注意力。</p><p>我还发现女嘉宾可能也是番茄工作法的拥趸。她屡屡引用了书里的材料，重要的不紧急，紧急的从来不重要；比如帕金森原理，你给会议安排多少时间，它就会撑满多长时间。节目中提到的“<a href="https://basecamp.com/books/calm">It Doesn’t Have to Be Crazy at Work</a>”，我也会去读一读。</p><p>说回生活。最近一个不好的现象，这两周晚上加班不少，总是留了点工作到家才弄完，有写代码，也有写材料和文档，自己也很沮丧。月初发了个推文串，当天回家如果打开电脑工作了我就加一条，希望能提醒自己提升效率，将工作和生活切割开。</p><p>周日酒局，一位朋友即将出国，带了獭祭加茅台。酒好，喝的也好，聊起过去每次喝酒，津津乐道。一晃我也回国五年了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这周听了一期播客，关于即时通讯软件和日常工作的效率，题材不错，一个小时。两位嘉宾都是飞书的经理，我想这期节目也算半个产品推荐水文吧。抛开推广的部分，聊聊我的想法。&lt;/p&gt;
+&lt;p&gt;前段时间 web3 很火，几个词高频出现。一个是 fud： fear, uncertainty </summary>
       
     
     
