@@ -25,17 +25,17 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "7e:0d:09:19:ed:19:95:d6:2f:b4:72:03:63:d0:4b:5f"
-      - deploy:
+      - run:
           name: Deploy website
           command: |
             git config --global user.name "zhengminhui"
             git config --global user.email "zhmh1025@hotmail.com"
             echo $PWD
             echo 'start deploy'
-            hexo generate
-            hexo deploy
-            hexo clean
-            echo 'successfully finished'
+      - run: hexo generate
+      - run: hexo deploy
+      - run: hexo clean
+      - run: echo 'successfully finished'
 workflows:
   deploy-blog-workflow:
     jobs:
