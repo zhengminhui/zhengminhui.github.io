@@ -32,8 +32,10 @@ jobs:
             git config --global user.email "zhmh1025@hotmail.com"
             echo $PWD
             echo 'start deploy'
-            npm run deploy
-            echo 'successfuly finished'
+            hexo g
+            hexo d
+            hexo clean
+            echo 'successfully finished'
 workflows:
   deploy-blog-workflow:
     jobs:

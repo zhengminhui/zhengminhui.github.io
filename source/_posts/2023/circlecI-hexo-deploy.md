@@ -10,53 +10,54 @@ abbrlink: circleci-hexo-blog
 date: 2023-02-18 10:20:25
 ---
 
-1. in project setting, ssh keys, authorize circleci with github.
+Finally!
+
+When this blog publish to my blog, it means I finished the circleci configuration.
 
 ```yml
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
     docker:
-      - image: node:18
+      - image: node:latest
+    working_directory: $CIRCLE_WORKING_DIRECTORY
+    steps:
+      - checkout
+      - run: npm install -g npm
+      - run: npm install -g hexo-cli
+      - run: hexo generate
+  deploy:
+    docker:
+      - image: node:latest
+    working_directory: $CIRCLE_WORKING_DIRECTORY/zhengminhui.github.io
     steps:
       - checkout
       - run:
-          name: Update NPM
-          command: sudo npm install -g npm@latest
-      - run:
           name: Install Hexo CLI
           command: |
-            sudo npm install hexo-cli -g
-      - restore_cache:
-          key: node-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install NPM packages
-          command: npm ci
-      - save_cache:
-          key: node-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: Generate blog
-          command: hexo generate
-      - persist_to_workspace:
-          root: public
-          paths:
-            - "*"
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+            npm install hexo-cli -g
+      - attach_workspace:
+          at: $CIRCLE_WORKING_DIRECTORY/zhengminhui.github.io
+      - add_ssh_keys:
+          fingerprints:
+            - "7e:0d:09:19:ed:19:95:d6:2f:b4:72:03:63:d0:4b:5f"
+      - deploy:
+          name: Deploy website
+          command: |
+            git config --global user.name "zhengminhui"
+            git config --global user.email "zhmh1025@hotmail.com"
+            echo $PWD
+            echo 'start deploy'
+            hexo g
+            hexo d
+            hexo clean
+            echo 'successfully finished'
 workflows:
   deploy-blog-workflow:
     jobs:
       - build
+      - deploy:
+          requires:
+            - build
 ```
-
-I use pnpm.
-
-When this blog publish to my blog, it means I finished.
