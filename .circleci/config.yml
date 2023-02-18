@@ -48,10 +48,10 @@ jobs:
             git config --global user.email "zhmh1025@hotmail.com"
             echo $PWD
             echo $CWD
-            git checkout -f master
+            git branch
             git add .
             git commit --allow-empty -m "Automatic commit from CircleCI [skip ci]"
-            git push -u origin main
+            git push -u origin master
       - run: echo 'successfully finished'
 workflows:
   deploy-blog-workflow:
