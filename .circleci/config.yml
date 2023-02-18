@@ -20,8 +20,6 @@ jobs:
           name: Install Hexo CLI
           command: |
             npm install hexo-cli -g
-      - restore_cache:
-          key: node-cache-{{ checksum "package-lock.json" }}
       - attach_workspace:
           at: public
       - add_ssh_keys:
