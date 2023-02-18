@@ -1,12 +1,13 @@
 ---
 title: Use circleci to build an deploy my hexo blog
-date: 2023-02-18 10:20:25
 categories:
   - tech
 tags:
   - circleci
   - deploy
   - hexo
+abbrlink: circleci-hexo-blog
+date: 2023-02-18 10:20:25
 ---
 
 1. in project setting, ssh keys, authorize circleci with github.
@@ -54,8 +55,6 @@ workflows:
   deploy-blog-workflow:
     jobs:
       - build
-
-
 ```
 
 I use pnpm.

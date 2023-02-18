@@ -4,16 +4,16 @@ jobs:
   build:
     docker:
       - image: node:latest
-    working_directory: ~/public
+    working_directory: $CIRCLE_WORKING_DIRECTORY
     steps:
       - checkout
-      - run: npm install
-      - run: npm install -g hexo-cli
+      - run: npm install -g pnpm
+      - run: pnpm install -g hexo-cli
       - run: hexo generate
   deploy:
     docker:
       - image: node:latest
-    working_directory: ~/public
+    working_directory: $CIRCLE_WORKING_DIRECTORY
     steps:
       - checkout
       - run:
