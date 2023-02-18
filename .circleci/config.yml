@@ -10,9 +10,31 @@ jobs:
       - run: npm install
       - run: npm install -g hexo-cli
       - run: hexo generate
-  
-
+  deploy:
+    docker:
+      - image: node:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install Hexo CLI
+          command: |
+            npm install hexo-cli -g
+      - restore_cache:
+          key: node-cache-{{ checksum "package-lock.json" }}
+      - attach_workspace:
+          at: public
+      - add_ssh_keys:
+          fingerprints:
+            - "7e:0d:09:19:ed:19:95:d6:2f:b4:72:03:63:d0:4b:5f"
+      - deploy:
+          name: Deploy website
+          command: |
+            git config --global user.name "zhengminhui"
+            git config --global user.email "zhmh1025@hotmail.com"
+            sh deploy.sh
 workflows:
   deploy-blog-workflow:
     jobs:
       - build
+      - deploy
