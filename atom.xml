@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Minhui&#39;s blog</title>
+  <icon>https://zhengminhui.github.io/images/favicon16.png</icon>
+  <subtitle>湾仔王二</subtitle>
+  <link href="https://zhengminhui.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://zhengminhui.github.io/"/>
+  <updated>2023-02-18T07:21:17.752Z</updated>
+  <id>https://zhengminhui.github.io/</id>
+  
+  <author>
+    <name>zhengminhui</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Use circleci to build an deploy my hexo blog</title>
+    <link href="https://zhengminhui.github.io/2023/circleci-hexo-blog/"/>
+    <id>https://zhengminhui.github.io/2023/circleci-hexo-blog/</id>
+    <published>2023-02-18T18:20:25.000Z</published>
+    <updated>2023-02-18T07:21:17.752Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>in project setting, ssh keys, authorize circleci with github.</li></ol><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use the latest 2.1 version of CircleCI pipeline process engine.</span></span><br><span class="line"><span class="comment"># See: https://circleci.com/docs/2.0/configuration-reference</span></span><br><span class="line"><span class="attr">version:</span> <span class="number">2.1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define a job to be invoked later in a workflow.</span></span><br><span class="line"><span class="comment"># See: https://circleci.com/docs/2.0/configuration-reference/#jobs</span></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">docker:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">image:</span> <span class="string">node:18</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">checkout</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">Update</span> <span class="string">NPM</span></span><br><span class="line">          <span class="attr">command:</span> <span class="string">sudo</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">npm@latest</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Hexo</span> <span class="string">CLI</span></span><br><span class="line">          <span class="attr">command:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            sudo npm install hexo-cli -g</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">restore_cache:</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">node-cache-&#123;&#123;</span> <span class="string">checksum</span> <span class="string">&quot;package-lock.json&quot;</span> <span class="string">&#125;&#125;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">Install</span> <span class="string">NPM</span> <span class="string">packages</span></span><br><span class="line">          <span class="attr">command:</span> <span class="string">npm</span> <span class="string">ci</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">save_cache:</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">node-cache-&#123;&#123;</span> <span class="string">checksum</span> <span class="string">&quot;package-lock.json&quot;</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">paths:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">./node_modules</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">run:</span></span><br><span class="line">          <span class="attr">name:</span> <span class="string">Generate</span> <span class="string">blog</span></span><br><span class="line">          <span class="attr">command:</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">persist_to_workspace:</span></span><br><span class="line">          <span class="attr">root:</span> <span class="string">public</span></span><br><span class="line">          <span class="attr">paths:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">&quot;*&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Invoke jobs via workflows</span></span><br><span class="line"><span class="comment"># See: https://circleci.com/docs/2.0/configuration-reference/#workflows</span></span><br><span class="line"><span class="attr">workflows:</span></span><br><span class="line">  <span class="attr">deploy-blog-workflow:</span></span><br><span class="line">    <span class="attr">jobs:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">build</span></span><br></pre></td></tr></table></figure><p>I use pnpm.</p><p>When this blog publish to my blog, it means I finished.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;in project setting, ssh keys, authorize circleci with github.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&quot;highlight yml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter</summary>
+      
+    
+    
+    
+    <category term="tech" scheme="https://zhengminhui.github.io/categories/tech/"/>
+    
+    
+    <category term="hexo" scheme="https://zhengminhui.github.io/tags/hexo/"/>
+    
+    <category term="circleci" scheme="https://zhengminhui.github.io/tags/circleci/"/>
+    
+    <category term="deploy" scheme="https://zhengminhui.github.io/tags/deploy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Chatgpt 和克莱因壶</title>
+    <link href="https://zhengminhui.github.io/2023/chatgpt-klein-bottle/"/>
+    <id>https://zhengminhui.github.io/2023/chatgpt-klein-bottle/</id>
+    <published>2023-02-12T00:58:35.000Z</published>
+    <updated>2023-02-12T00:55:34.289Z</updated>
+    
+    <content type="html"><![CDATA[<p>Chatgpt 又火了。</p><p>突然不论什么职业，所有人都在谈论 chatgpt。金融行业在做 chatgpt 板块，文字工作者在用它文案，程序员在用它写 CRUD Demo。去年 11 月 30 号刚出来时，在程序员里小火了一波，v2ex 上一下子来了很多人用它回答问题，但是内容质量堪忧，车轱辘话来回说，当时还屏蔽了几个人——就像刚学了新词就拼命用的小学生，还挺烦人的。没过几天，stack overflow 也禁止用 chatgpt 回答提问。之后好像偃旗息鼓了，直到这周，在中文圈弥漫开来。</p><p>说说我的看法。宣传上，这两天给我的感觉就像是近两年的元宇宙和 web3，很火，有流量，所有的业内业外都来参与，热度起来了，但过阵子就会沉寂；技术上，还会慢慢耕耘进步，会有人在它基础上开发垂直领域应用，就像去年的 github copilot。商业模式上，AI 应用主要的问题是怎么落地。政策上，AIGC 在国内的监管，我是持谨慎的态度的。至于国内一众大厂这周宣布开发文心一言，chatjd，我觉得听听就行，迟早要黄。</p><p>说到底，chatgpt 在当下，解决现实问题，还差一点。辅导小孩学习，写一些周报，文档，翻译文案，还是可以的。我用它来写了简历，给它一些关键词和短句，生成一段简历描述，效果还不错。不过还得把关它的回答，否则遇到没有训练过的内容就容易瞎说。一个朋友总结的很好，大忙帮不上，小忙不用帮。短期内我不看好，尤其是在创作五彩斑斓的黑的产品上，绝大部分的产品还是需要人与人的沟通在能弄清细枝末节的需求。长期上，它将改变人们搜索、提问，甚至工作，交流的方式，有什么事，问它就好了，不用再去 google 搜索。谷歌的 bard 还没试用，不知道效果如何。</p><p>周六看完了《克莱因壶》。庄周梦蝶。这本书的阅读体验很棒，酣畅淋漓，读来几乎没有停顿，我都有点怀疑这本书标的有二十五万字。而且，竟然还是八九年的作品，现在看来还觉得前卫，完全没有一点过时的感觉——除了只能通过公用电话沟通这点，还蛮有时代感。读的过程中，随着层层递进，自己也在一直怀疑，这是真的吗，还是虚拟的？有时我想，要是当时有手机就好了，还能当场打电话对质。不过转念一想，既然是在壶里，有无即时通讯又有何区别呢？直到最后一刻，开放式结尾也很惊艳，让人反刍回味。</p><p>这周是正式开始复习的第一周，刷题不是很高效。剑指 offer 进入了中等困难的部分，每天进展缓慢。下周要提高效率，每天不要贪多，我觉得 mid 难度，每天三题就足够了，太多了，不仅刷不完，造成心理压力，还没有时间去复习前端知识。争取在上午刷完，然后下午就复习前端，准备看看 promise，hooks 这些最紧要的。</p><p>到下周一，就是失业一个月了，要开始投简历，开始面试了。</p><p>希望顺利。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Chatgpt 又火了。&lt;/p&gt;
+&lt;p&gt;突然不论什么职业，所有人都在谈论 chatgpt。金融行业在做 chatgpt 板块，文字工作者在用它文案，程序员在用它写 CRUD Demo。去年 11 月 30 号刚出来时，在程序员里小火了一波，v2ex 上一下子来了很多人用它回</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+    <category term="chatgpt" scheme="https://zhengminhui.github.io/tags/chatgpt/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>春节档电影</title>
+    <link href="https://zhengminhui.github.io/2023/chunjie-movies/"/>
+    <id>https://zhengminhui.github.io/2023/chunjie-movies/</id>
+    <published>2023-02-04T23:22:13.000Z</published>
+    <updated>2023-02-11T14:06:59.989Z</updated>
+    
+    <content type="html"><![CDATA[<p>从云南回来，可能是坐车坐久了，也可能是太久没锻炼了，背部肌肉越来越弱，胸部肌肉越来越紧张，这周颈椎一直不太舒服，头有点晕，得赶紧健身起来了。</p><p>这周看了几部春节档，乏善可陈。</p><p>流浪地球 2，还不错，总体感觉不及第一部。节奏有些拖沓，卯着劲要拍第三部。相对于小说来说，不够冷峻，有时候感觉它就想赚观众的眼泪，但是又没有很催泪。</p><p>满江红，让秦桧（的替身）来朗诵满江红，总感觉有些奇怪。费大力气死这么多人，到最后说不杀了，总感觉有些奇怪。中国电影，生死关头，开始唱歌，总感觉有些奇怪。串场的说唱，没显示字幕，说实话不知道在唱什么，还有点喧嚣。</p><p>无名，虽然有电影的质感——我指画面，但故事和演员实在太差劲，梁朝伟都救不回来。两小时的电影，缩减到 80 分钟，还能看。男主角仿佛拔了智齿含着纱布的表情，还是大段的慢镜头，受不了。</p><p>风再起时，很烂，乞丐版 2046 加阿飞正传的感觉。整部剧就像打了个话痨的士，听司机唠叨了一路各种八卦新闻，完全没重点。请导演们不要动不动就拍三十年风云变幻，史诗不是那么容易，把一件小事讲好就不错了。</p><p>这周新笔记本终于到了，配置好又花了一天，以后得研究下怎么用 time machine 再备份到我的 nas 去。</p><p>好马配好鞍，下周正式开始复习了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;从云南回来，可能是坐车坐久了，也可能是太久没锻炼了，背部肌肉越来越弱，胸部肌肉越来越紧张，这周颈椎一直不太舒服，头有点晕，得赶紧健身起来了。&lt;/p&gt;
+&lt;p&gt;这周看了几部春节档，乏善可陈。&lt;/p&gt;
+&lt;p&gt;流浪地球 2，还不错，总体感觉不及第一部。节奏有些拖沓，卯着劲要拍第三部</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>my working mac setup as a web developer</title>
+    <link href="https://zhengminhui.github.io/2023/my-working-mac-setup/"/>
+    <id>https://zhengminhui.github.io/2023/my-working-mac-setup/</id>
+    <published>2023-01-28T22:56:12.000Z</published>
+    <updated>2023-02-03T07:15:29.232Z</updated>
+    
+    <content type="html"><![CDATA[<p>This is my working mac setup checklist. I used these tools almost every day and I highly recommend them. I put the installation package on my NAS so that when I change my laptop, I can easily and quickly bring my development environment back.</p><p>Here is the checklist.</p><h3 id="Google-Chrome"><a href="#Google-Chrome" class="headerlink" title="Google Chrome"></a>Google Chrome</h3><p><a href="https://www.google.com/intl/zh-CN/chrome/">https://www.google.com/intl/zh-CN/chrome/</a></p><hr><h3 id="ClashX"><a href="#ClashX" class="headerlink" title="ClashX"></a>ClashX</h3><p><a href="https://github.com/yichengchen/clashX">https://github.com/yichengchen/clashX</a></p><hr><h3 id="Terminal"><a href="#Terminal" class="headerlink" title="Terminal"></a>Terminal</h3><p>I used to use iterm2. But since I changed to warp, I feel like I cannot live without it. It looks nice and saves a lot of my time config it. I like the AI command auto-completion coming out of the box.</p><p><a href="https://www.warp.dev/">https://www.warp.dev/</a></p><hr><h4 id="Brew"><a href="#Brew" class="headerlink" title="Brew"></a>Brew</h4><p>Install brew via curl.<br><a href="https://brew.sh/">https://brew.sh/</a></p><p>Update and upgrade brew.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update &amp;&amp; brew upgrade</span><br></pre></td></tr></table></figure><hr><h4 id="ZSH-and-oh-my-zsh"><a href="#ZSH-and-oh-my-zsh" class="headerlink" title="ZSH and oh-my-zsh"></a>ZSH and oh-my-zsh</h4><p>First, install zsh via brew.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh</span><br></pre></td></tr></table></figure><p>Then install the oh-my-zsh plugin. I like it and will only some small changes on the top of the configurations.</p><p><a href="https://ohmyz.sh/#install">https://ohmyz.sh/#install</a></p><p>Set proxy to terminal by adding this line at the top of your zshrc file.</p><p><code>export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890</code></p><p>To make sure it’s properly set up, you can try pinging google public DNS.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping 8.8.8.8</span><br></pre></td></tr></table></figure><hr><h4 id="Theme-Dracula"><a href="#Theme-Dracula" class="headerlink" title="Theme Dracula"></a>Theme Dracula</h4><p>I use Dracula for Warp and IDE.</p><p>Here is how to install Dracula for oh-my-zsh. And I prefer to install it manually.</p><p><a href="https://draculatheme.com/zsh">https://draculatheme.com/zsh</a></p><p>Use this command can get your zsh location path.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $ZSH</span><br></pre></td></tr></table></figure><p>First, git clone the zsh repo in my workspace.</p><p>Then copy the theme file and lib folder to the zsh folder.</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. Download using the GitHub .zip download option and unzip them.</span><br><span class="line">2. Move dracula.zsh-theme file to oh-my-zsh&#x27;s theme folder: oh-my-zsh/themes/dracula.zsh-theme.</span><br><span class="line">3. Move /lib to oh-my-zsh&#x27;s theme folder: oh-my-zsh/themes/lib.</span><br></pre></td></tr></table></figure><hr><h4 id="SSH-key"><a href="#SSH-key" class="headerlink" title="SSH key"></a>SSH key</h4><p>Generate ssh key</p><p><code>ssh-keygen -t rsa</code></p><p>You can get your root path using</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $PWD</span><br></pre></td></tr></table></figure><p>Check your key</p><p><code>vi $PWD/.ssh/id_rsa.pub</code></p><p>Then copy the key to your GitHub.</p><hr><h4 id="nvm-and-npm"><a href="#nvm-and-npm" class="headerlink" title="nvm and npm"></a>nvm and npm</h4><p>Install nvm and npm. I prefer always using the LTS version.</p><p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p><hr><h4 id="pnpm"><a href="#pnpm" class="headerlink" title="pnpm"></a>pnpm</h4><p>pnpm is a fast, disk space-efficient package manager.</p><p><a href="https://pnpm.io/">https://pnpm.io/</a></p><p>Install it via brew.</p><p><code>brew install pnpm</code></p><hr><h4 id="IDE"><a href="#IDE" class="headerlink" title="IDE"></a>IDE</h4><p>I both use vscode and webstorm. Since sometimes I write some python code, I’ll download <code>JetBrains Toolbox</code>. It can download and update webstorm and pycharm.</p><p>Jetbrains Toolbox</p><p><a href="https://www.jetbrains.com/toolbox-app/">https://www.jetbrains.com/toolbox-app/</a></p><p>VS code, I used the insider version.</p><p><a href="https://code.visualstudio.com/insiders/">https://code.visualstudio.com/insiders/</a></p><hr><h4 id="Grammarly"><a href="#Grammarly" class="headerlink" title="Grammarly"></a>Grammarly</h4><p><a href="https://app.grammarly.com/">https://app.grammarly.com/</a></p><hr><h4 id="medium-unlimited"><a href="#medium-unlimited" class="headerlink" title="medium unlimited"></a>medium unlimited</h4><p><a href="https://manojvivek.github.io/medium-unlimited/download/">https://manojvivek.github.io/medium-unlimited/download/</a></p><hr><h4 id="Fonts"><a href="#Fonts" class="headerlink" title="Fonts"></a>Fonts</h4><p>I use Jetbrains Mono, Fira code for coding and use lxgw for display Chinese. </p><ol><li><a href="https://www.jetbrains.com/lp/mono/">https://www.jetbrains.com/lp/mono/</a></li><li><a href="https://github.com/tonsky/FiraCode">https://github.com/tonsky/FiraCode</a></li><li><a href="https://github.com/lxgw/LxgwWenKai">https://github.com/lxgw/LxgwWenKai</a></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;This is my working mac setup checklist. I used these tools almost every day and I highly recommend them. I put the installation package o</summary>
+      
+    
+    
+    
+    <category term="tech" scheme="https://zhengminhui.github.io/categories/tech/"/>
+    
+    
+    <category term="setup" scheme="https://zhengminhui.github.io/tags/setup/"/>
+    
+    <category term="workspace" scheme="https://zhengminhui.github.io/tags/workspace/"/>
+    
+    <category term="web-development" scheme="https://zhengminhui.github.io/tags/web-development/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>下岗与春节</title>
+    <link href="https://zhengminhui.github.io/2023/xiagang-and-spring-festival/"/>
+    <id>https://zhengminhui.github.io/2023/xiagang-and-spring-festival/</id>
+    <published>2023-01-17T05:54:10.000Z</published>
+    <updated>2023-02-03T07:15:29.232Z</updated>
+    
+    <content type="html"><![CDATA[<p>周一签完字，拿了离职证明。</p><p>过程有些曲折，有些不成气候的争取，但是结果没有改变。21 年 8 月 9 号到 23 年 1 月 16 号，又完成了一段职业生涯，只觉得时间过得飞快，一晃程序员的 35 岁就在眼前了。在 SmartNews，认识了很多有趣的同事，相处融洽，工作环境也很棒，说起来还略微不舍。</p><p>这次离职的速度之快，让人完全没有反应。不仅我一个人，周一好几个同事都在买新电脑，大家还交流在哪买便宜。这件事情以后，自己还是要长个记性，自己的文件，demo，一定要勤备份，存在自己的笔记本上，保不齐会发生什么事。</p><p>一个感触，不用再问公司有没有裁员的计划，之前每次 global all hands 都有人问，现在美国经济环境不好，各大公司裁员，我们有没有裁员计划呢？但是每次公司的答复都是运营良好，不会裁员，直到最后来了波大的。我感觉，一个公司，冻结招聘，缩减福利，是两个最明显的信号。一旦到了这个时候，说明公司的运营状况出大问题了。即使不用立即跑路，至少也要保持警惕，想想出路了。</p><p>不开心的事情，就到此为止吧。放下包袱，轻轻松松，过个好年。</p><p>这周六除夕，大年初一和女朋友去香格里拉，回来再努力吧！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;周一签完字，拿了离职证明。&lt;/p&gt;
+&lt;p&gt;过程有些曲折，有些不成气候的争取，但是结果没有改变。21 年 8 月 9 号到 23 年 1 月 16 号，又完成了一段职业生涯，只觉得时间过得飞快，一晃程序员的 35 岁就在眼前了。在 SmartNews，认识了很多有趣的同事，相</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SmartNews 裁员</title>
+    <link href="https://zhengminhui.github.io/2023/get-laid-off-from-smartnews/"/>
+    <id>https://zhengminhui.github.io/2023/get-laid-off-from-smartnews/</id>
+    <published>2023-01-14T22:15:38.000Z</published>
+    <updated>2023-02-03T07:15:29.232Z</updated>
+    
+    <content type="html"><![CDATA[<p>最怕的事情，一定会来的，公司裁员了。</p><p>其实早就有走的想法。公司的福利一砍再砍，新年的 smartselect 迟迟没有开始，种种迹象，颇有滴滴前两年落魄的影子。好几次和女朋友晚上散步聊天，说希望能给我多一点时间，年后好好复习下，骑驴找马，换个工作。这下不妙，驴没了。</p><p>事情发生的太突然。</p><p>周四下午，公司 pa 和 sf 的办公室突然关闭，大家都居家办公。nick 转发了两条消息提醒美国同事们，kris 还回了一句 interesting，kaila 更直接，问，are we getting laid off. 这个时候我们还打趣的回了个 twitter 的表情。</p><p>然后 ceo 发了条消息，说明早九点临时会议，有重要消息公布，所有人都要参加。当时就感觉裁员板上钉钉，但不知道对中国部门影响有多大。</p><p>周五，ceo 上来就说裁员 40%，美国我们组全裁了，北京办公室几乎裁完，上海影响不大好像。会议开完大家陆续被锁电脑，github 权限回收，slack 被下线。这种美式裁员之前只在新闻里见，即使之前在美国工作也未体验，在国内倒是痛快的体验了一次，又痛又快。</p><p>一上午，心脏都是砰砰跳，因为锁屏和账号回收是逐步的，不知道自己是否在内。先是在大群看到 Zheng 被移除了 stand up bot，与此同时 slack 左边栏的同事慢慢消失，心里虽然有预期大概是全军覆没，但总还是抱有一丝微弱的幻想。直到看到一个部署通知的群里，提示，w2w 和 entertainment 项目无法再被订阅，因为 owner @minhui 已经 no longer has access，巴拉巴拉，这时才尘埃落定。</p><p>HR 通知说，下周一请务必到办公室，已有预期，估计是聊赔偿的事情。</p><p>靴子落地，倒没什么感受了，打车去了公司，遇见幸存的同事也是礼貌笑笑。和 Zheng 去吃了个丰茂烤串，喝了杯啤酒，回办公室收拾桌子。</p><p>周末刷到一个日本同事发的推，去年休了个产假，还刷了快三百道题，提交了 950 次。自觉羞愧汗颜。凡事预则立不预则废，我没做好。这可能也是我最长一段时间没有面试，确实沉沦了。</p><p>新年第一件大事，又要开始找工作了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最怕的事情，一定会来的，公司裁员了。&lt;/p&gt;
+&lt;p&gt;其实早就有走的想法。公司的福利一砍再砍，新年的 smartselect 迟迟没有开始，种种迹象，颇有滴滴前两年落魄的影子。好几次和女朋友晚上散步聊天，说希望能给我多一点时间，年后好好复习下，骑驴找马，换个工作。这下不妙，驴</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2023 新年第一周</title>
+    <link href="https://zhengminhui.github.io/2023/2023-01-jan-w1/"/>
+    <id>https://zhengminhui.github.io/2023/2023-01-jan-w1/</id>
+    <published>2023-01-06T22:54:25.000Z</published>
+    <updated>2023-02-03T07:15:29.232Z</updated>
+    
+    <content type="html"><![CDATA[<p>2023 年的第一周，新年快乐。</p><p>去年的总结和今年的规划单独写在另一篇文章里了，还在进行中，这里先不表。记录一件小事，也许还算有趣。</p><p>昨天有个朋友 A 在群里嘀咕了一句，不知道去哪玩，想出国也出不去。过了两分钟，另一位朋友 B 就问，为啥出不去，现在不能出国吗。朋友 C 回答，可以出。我想现在大使馆因为疫情还没上班，就说道，私人签证还没放开吧。然后 C 补充了一句，女朋友是长期个签，但是她不具备参考价值。这时 A 回话了，因为男朋友是国企，护照被没收了。</p><p>事后翻看这段对话，虽然每个人都说的在理，但每个人答题的思路都不一样。有时候不理解网络上人因何而争吵，费时费力，斗得不可开交。这似乎是个不错的案例。</p><p>盲人摸象，即使短短几句话，也许因为大家的出发点、角度、高度不同，导致产生的观点、结论千差万别。脱离了背景、语境、认同、共识，对话会变得毫无意义。</p><p>第一篇适合温柔的开始，就写这些吧。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;2023 年的第一周，新年快乐。&lt;/p&gt;
+&lt;p&gt;去年的总结和今年的规划单独写在另一篇文章里了，还在进行中，这里先不表。记录一件小事，也许还算有趣。&lt;/p&gt;
+&lt;p&gt;昨天有个朋友 A 在群里嘀咕了一句，不知道去哪玩，想出国也出不去。过了两分钟，另一位朋友 B 就问，为啥出不去，</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>十二月，解封了，感染了</title>
+    <link href="https://zhengminhui.github.io/2022/end-of-epidemic/"/>
+    <id>https://zhengminhui.github.io/2022/end-of-epidemic/</id>
+    <published>2022-12-31T00:04:09.000Z</published>
+    <updated>2023-02-13T15:07:28.535Z</updated>
+    
+    <content type="html"><![CDATA[<p>十二月，突然就解封了。</p><p>来的很仓皇，就像没发生过一样，网上也看到工作 人员在机场火车站擦除扫码检查核酸的贴纸。核酸亭的“大白”消失了，留下空空的岗亭，但还有长长的排队的围栏，显示这里曾经拥挤的痕迹。</p><p>刚刚解封，路上的行人还不多。我和 Doris 也没怎么出门，想着再苟苟，不知怎么就感染了。女友说，是买周黑鸭的外卖袋没消毒，之前都消毒很仔细的，那天在打双人成行太认真了，没注意就提进来了。我觉得可能性太多了，电梯，垃圾桶，下水道之类的，仔细研究也没啥意义了。</p><p>女友先感染的，也更严重些。刚刚开始时，她担心传染我，一个人在卧室戴着 N95 口罩。我说如果你感染了，我也板上钉钉，啥用没有。</p><p>刚开始还好，先是变声，嗓音变浑浊，有痰。然后开始发烧，最高烧到 39 度，吃不进东西，吃啥吐啥，下的清汤面条也吐（可见以后发烧，最好先饿一饿）。不发烧以后就可以测出抗原阳性了，但只要不发烧，人也会舒服点了。</p><p>接下来就是丧失嗅觉，闻不到味道。用的洗发水，本来是有很浓重的草本味，闻不到；香薰蜡烛味道，也闻不到。再后来过了两三天，嗅觉慢慢恢复，嗓子也不嘶哑了，基本就好了。唯有干咳，稀稀拉拉又持续了十、二十来天。</p><p>我比她大约晚了两天，刚好错开，可以照顾她。对我来说，很奇怪，几乎没什么难受的感觉，也没发烧，除了嗓子疼了一下，嗅觉丧失以外，基本无大碍。只是每晚都会咳嗽，有时也有痰，可能是有炎症。总体感觉下来，没有上个月初发烧那次难受。</p><p>北京办公室的同事基本都感染了一遍，剩下两三个幸运儿还没感染。圣诞节前后，感染过的同事们就回办公室上班了。</p><p>回想起来，今年居家隔离了两个月左右，转眼之间，一年结束了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;十二月，突然就解封了。&lt;/p&gt;
+&lt;p&gt;来的很仓皇，就像没发生过一样，网上也看到工作 人员在机场火车站擦除扫码检查核酸的贴纸。核酸亭的“大白”消失了，留下空空的岗亭，但还有长长的排队的围栏，显示这里曾经拥挤的痕迹。&lt;/p&gt;
+&lt;p&gt;刚刚解封，路上的行人还不多。我和 Doris </summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>十一月，居家</title>
+    <link href="https://zhengminhui.github.io/2022/lock-down-november/"/>
+    <id>https://zhengminhui.github.io/2022/lock-down-november/</id>
+    <published>2022-12-01T02:22:48.000Z</published>
+    <updated>2023-02-13T15:51:35.503Z</updated>
+    
+    <content type="html"><![CDATA[<p>11 月，天气渐凉。二十大后并没有放开的架势，反而更严格了，当然也和 omicron 的传播速率太快有关，整个 11 月几乎都在居家办公。</p><p>月初，twitter 大裁员。有人说 musk 化身灭霸，一个响指解雇了 50%的员工。Meta 也在裁，今年硅谷从年前裁到年尾，唇亡齿寒，我对未来十分悲观。</p><p>第二周，突然发烧了。周末出去吃饭，穿的冬天的衣服，到了商场感觉特别热，脱下来穿着短袖，一冷一热就感冒了。流鼻涕，打喷嚏，嗓子疼，最后发烧，偏头痛，眼眉疼。还得下楼去做核酸，保持北京健康宝的保质期，心理压力倍增，担心自己是感染了新冠。在这个时间点，倒不是害怕疾病本身，而是担心被拉走隔离。看到微博上别人发的隔离酒店情况，卫生、饮食状况堪忧。</p><p>第三周，十里堡开始封控了。17 号我回十里堡 wfh，顺便拿点书和衣服到女朋友家。大约晚上 7 点多打车离开。第二天起来看小区群里说清早五六点楼就封了，有人检查是阳性。这一封就是两周，直到 30 号大结局才解封。我看着不禁庆幸又后怕，要是周四晚上磨蹭了一下，第二天再过去，那可就不妙了。现在那边家里吃的喝的全无，冰箱都是空的，全靠工作人员接济，封控提供的食物可想而知。楼栋的防疫群里，也是众生相。刚刚开始时，积极配合，做核酸测抗原。随着封控继续，解封遥遥无期，人们开始动摇了，开始质问社区工作人员，也有人谩骂，也有政治观点不合的对骂。最后解封，又是一派祥和。</p><p>我们楼道似乎还算比较温柔，属于文斗。群里看到一些北京其他小区的，居民涌下楼来和门卫对峙，拒绝焊门，拒绝封楼道，拒绝隔离。</p><p>11 月的最后几天，不平静，姑且记录。11 月 24 日晚，乌鲁木齐大火，十人死亡。各地有些游行，程度不一。网上流传乌鲁木齐中路的路牌被拆走了的图片，有人说是 P 的。一些地方有人举白纸抗议，有人说是境外势力。11 月 30 日，江泽民去世，一个时代落幕。</p><p>疫情居家期间，在读莫言的《丰乳肥臀》，让人回味。我喜欢金童入狱前和拾遗的部分，叙事更〞正常”，让人感动，有几次差点落泪。出狱后的部分风格有点魔幻，有些生死疲劳的意思。22 年的最后时刻读这本书，五味杂陈，故事里的事，从未走远。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;11 月，天气渐凉。二十大后并没有放开的架势，反而更严格了，当然也和 omicron 的传播速率太快有关，整个 11 月几乎都在居家办公。&lt;/p&gt;
+&lt;p&gt;月初，twitter 大裁员。有人说 musk 化身灭霸，一个响指解雇了 50%的员工。Meta 也在裁，今年硅谷从年前</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>到内蒙去</title>
+    <link href="https://zhengminhui.github.io/2022/plan-trip-to-inner-mongolia/"/>
+    <id>https://zhengminhui.github.io/2022/plan-trip-to-inner-mongolia/</id>
+    <published>2022-09-30T23:14:24.000Z</published>
+    <updated>2023-02-03T07:15:29.231Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是 9 月 30 号，Q3 的最后一天，好快一年又快过完了。</p><p>这周还在做美国中期选举的项目，节前把组件用接口的样例数据开发好，节后回来再切换到真实数据。10 月 12 号公司的 Hackathon 还没想好点子，也不知道到时候有无时间去搞，毕竟 election 的东西现在是最高优先级。</p><p>但是说实话感觉这个项目做着没有节奏感，也没成就感。过了十月中旬，需要好好思考下接下来做些什么了，感觉这一年做的事情都很表面，不够系统，也不够深入，准备花点时间找个领域深挖一下。</p><p>国庆节准备去内蒙，又可以解锁一个新的省份。原本计划海拉尔——阿尔山大环线，但是考虑到自驾游，舟车劳顿，不想大家太辛苦，把阿尔山去掉了，就在呼伦贝尔海拉尔转转，还会去中俄边境。16 号开二十大，进京肯定不容易。Anyway 希望一切顺利，旅途平安，回来再写游记。</p><p>《曾国藩的正面与侧面》在十一之前无法看完了。最近工作较忙，晚上还在收拾行李，从内蒙旅行回来再读吧。顺便带上了《卡拉马佐夫兄弟》，飞机上可以看。迄今为止，今年一共读完了 15 本书，阅读的习惯还是不够好，不够自律。数字不是目的，而是在通往目的地的路标。Q4 希望可以把阅读时间固定下来，到年底争取可以读完 24 本书。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;今天是 9 月 30 号，Q3 的最后一天，好快一年又快过完了。&lt;/p&gt;
+&lt;p&gt;这周还在做美国中期选举的项目，节前把组件用接口的样例数据开发好，节后回来再切换到真实数据。10 月 12 号公司的 Hackathon 还没想好点子，也不知道到时候有无时间去搞，毕竟 elect</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>九月第四周，放假在即</title>
+    <link href="https://zhengminhui.github.io/2022/2022-30-sep-w4/"/>
+    <id>https://zhengminhui.github.io/2022/2022-30-sep-w4/</id>
+    <published>2022-09-22T23:09:53.000Z</published>
+    <updated>2023-02-03T07:15:29.231Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是 9 月 22 日周四，现在下午四点，抽一个小时快速记录下本周的事项。</p><p>昨晚加班到一点，解决一个问题。原本觉得事情应该是轻松搞定，钻进去之后发现并不是，还是花了些调研和研究。要实现一个 parliament chart，议会席位图。通常用的库叫 parliament-svg。因为中期选举会有席位的变更，所以设计师希望在图中将诸如 lead, uncontested, net gain, flip 通过不同的 circle 区分开来。所以我需要:</p><ol><li>draw a svg circle with a filled background color and repeated colorful stripes.</li><li>update library source code and render different circles based on seat types.</li></ol><p>难点也是两处</p><ol><li>用 css 画，很简单，用 repeat-linear-gradient 很容易实现。用 svg 则需要使用 pattern。</li><li>parliament-svg 虽然代码不多，但是涉及到 circle 大小和中点怎么计算，需要看源码。另外它使用了 hast, Hypertext Abstract Syntax Tree，还需要去了解一些这个库的相关知识和背景。</li></ol><p>花的时间比较多的点是：</p><ol><li>pattern 没用过，怎么画需要实验。</li><li>一个画出来后，多个在一起，圆上的条纹不均匀，原因是 pattern 里的 width height 和 circle 的半径有关系。需要尝试，调整。</li><li>原库只有计算和绘制 circle 的逻辑，怎么在他的基础上把写好的 pattern 插进去。</li></ol><p>好在最后都解决了，放假有时间整理一下写篇技术博客。</p><p>9 月 18 号凌晨，贵州转运隔离人员的大巴车发生事故，27 人遇难。把整个小区的人拉出来，送到周边县市的做法，虽然不知道从何时开始的，但是看上去执行者（我也不知道该用什么词来形容他们）还蛮喜欢这一招的，屡试不爽。五月时北京疫情，有朋友一整个小区拉到了崇礼云顶的冬奥酒店。因为之前去滑雪住过，记忆犹新。再之前也看到新闻消息，成都疫情，也是把人拉出去，然后宣布社会面清零。这么多趟大巴在路上跑着，总有出事的概率。看到消息时，感觉五味杂陈，但也不知道能说什么，只想记录下这件事，记录下这个时代。</p><p>就像我们无法真切感受从前一样，未来的人会怎么评价我们呢？</p><p>最近伊朗突然爆发大规模的示威冲突，起因是警察以衣着不合规为由，导致一个小女孩不治身亡。让我想起阿拉伯之春的导火线，是一个小贩不堪重负，引火自焚，最后引发一系列的变革。蝴蝶效应，书写历史。</p><p>本周接下来，准备做 election 的地图组件，继续看《曾国藩的正面与侧面》，预计在十一前能看完。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;今天是 9 月 22 日周四，现在下午四点，抽一个小时快速记录下本周的事项。&lt;/p&gt;
+&lt;p&gt;昨晚加班到一点，解决一个问题。原本觉得事情应该是轻松搞定，钻进去之后发现并不是，还是花了些调研和研究。要实现一个 parliament chart，议会席位图。通常用的库叫 parl</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>中秋节</title>
+    <link href="https://zhengminhui.github.io/2022/mid-autumn-festival-2022/"/>
+    <id>https://zhengminhui.github.io/2022/mid-autumn-festival-2022/</id>
+    <published>2022-09-13T16:00:02.000Z</published>
+    <updated>2023-02-03T07:15:29.231Z</updated>
+    
+    <content type="html"><![CDATA[<p>这周中秋节放假，去了平谷的金海湖和丫髻山转了一圈。沿着金海湖大坝走了一趟下来，没甚么意思。丫髻山风景不错，一条笔直的上山步道，远看有点壮观，只是台阶有些高，同行的朋友们叫苦不迭。爬到山顶，正殿正在施工，搭满了脚手架，叮当桄榔一阵敲，不久后，一幢现代建筑又将屹立山顶。我觉得扫兴，站山顶吹吹风就下来了。</p><p>这周工作进展很不顺利，工作不在状态。每天开会太多，在办公室又容易被影响，自己沉浸的时间不够，工作状态不够集中。准备这周末花一天时间赶赶进度，下周要提高效率。</p><p>最近在看张宏杰的《曾国藩传》，很不错，大约周末即可看完，之后会把《曾国藩的正面与侧面》连在一起看。之前对曾国藩了解不多，隐约只了解湘军，平叛太平天国之类。读书过程中，对人、事有了新的认识，看完之后一并记录。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这周中秋节放假，去了平谷的金海湖和丫髻山转了一圈。沿着金海湖大坝走了一趟下来，没甚么意思。丫髻山风景不错，一条笔直的上山步道，远看有点壮观，只是台阶有些高，同行的朋友们叫苦不迭。爬到山顶，正殿正在施工，搭满了脚手架，叮当桄榔一阵敲，不久后，一幢现代建筑又将屹立山顶。我觉得扫</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>换个时间写简报</title>
+    <link href="https://zhengminhui.github.io/2022/writing-on-monday/"/>
+    <id>https://zhengminhui.github.io/2022/writing-on-monday/</id>
+    <published>2022-09-06T18:23:37.000Z</published>
+    <updated>2023-02-03T07:15:29.231Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天是 9 月 6 号星期二，上周末一场暴雨，温度又下降了几度，一层秋雨一层凉。北京也来到最舒适的季节，天空湛蓝，秋高气爽。</p><p>今天刚好是美国的 labor day，所以这周一二都很沉浸，没人找，可以自己支配干点事情。最近沉迷恋爱，都没有时间写周报了。两个人的时光，丰富了许多，伙食也更好了，希望可以多出去走走，多感受一下生活，不要总是宅在家里。当然有利有弊，自己独处的时间就减少了。最近健身，阅读，学习的习惯也没有延续，旧的制度被打破，新的制度未建成。人的时间和精力是固定的，守恒的，无非这里多一点，那里就少一点。下班回家后和周末的时间无法保证了，只能提高在办公室的效率。我十分珍视写作——自省、阅读——学习的机会，感觉是为数不多属于自己的时光，所以首先规划的作息也和这两者有关。</p><p>第一，原本都是周末写周报，视角是上周的总结；现在换成固定周一写，视角也变成本周的计划。周一没有会，也适合制定本周的计划。三点到四点，一个小时绰绰有余。希望自己写得快点，少说废话。</p><p>第二，先读书再上班，回家后的时间分配给两人散步或者看电影或者跑步。原来习惯睡前看书，总感觉不看几页今天就很虚度。现在想想，既然自己重视这项日程，就应该最先做，而不是拖到一天结束的时候。</p><p>先这么决定。</p><p>再说计划。</p><p>因为上个月拖欠了好几篇简报，在这周得加把劲，在中秋节休息后补完。</p><p>工作上正式开始做选举项目，虽然上线时间是 1015，但是十一休息 9 天，回来后又是 Hackathon，估计也没太多时间。在这个月底得开发个八九不离十。这周计划完成地图的前端部分，数据等到下周从接口获取。</p><p>周五的要做一个关于 APLP 的演讲。周三下午花 2-3 个番茄搞定。</p><p>大约就是这些了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;今天是 9 月 6 号星期二，上周末一场暴雨，温度又下降了几度，一层秋雨一层凉。北京也来到最舒适的季节，天空湛蓝，秋高气爽。&lt;/p&gt;
+&lt;p&gt;今天刚好是美国的 labor day，所以这周一二都很沉浸，没人找，可以自己支配干点事情。最近沉迷恋爱，都没有时间写周报了。两个人的时</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>北灵山徒步</title>
+    <link href="https://zhengminhui.github.io/2022/hiking-north-lingshan/"/>
+    <id>https://zhengminhui.github.io/2022/hiking-north-lingshan/</id>
+    <published>2022-09-04T05:43:10.000Z</published>
+    <updated>2023-02-03T07:15:29.231Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36d4dd15c3c5418f80f892a3724f60ae~tplv-k3u1fbpfcp-watermark.image" alt="3711662539565_.pic_hd.jpg"></p><p>这周开始又能明显感觉到工作的迟滞和疲惫，一个项目有一些长尾的问题在修复，一个项目屡有变动，UI 迟迟无法最终敲定。目标不明确，精力不集中。</p><p>周六去爬了一次北灵山，堪称一次全新的体验。</p><p>东灵山去过好几次了，强度有些大，不适合新手，由于这次有些新 hiker，所以选了北灵山。出发前看天气预报说有雨，本想换到周日，但是考虑到周日爬山后周一上班容易疲惫，最后还是按原计划进行。</p><p>我们的起点，北灵山无字碑。明明不是写了字？</p><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8a9550279a3348ef9f6677b041bcaceb~tplv-k3u1fbpfcp-watermark.image" alt="3751662539569_.pic_hd.jpg"></p><p>还没下雨的时候，云雾缭绕。</p><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b0ef37e467948a38cd07b942463f851~tplv-k3u1fbpfcp-watermark.image" alt="3741662539568_.pic_hd.jpg"></p><p>坦白讲北灵山确实难度一般，适合新手。坡度合适，陡坡和缓路兼有，钻树林也挺有意思，问题出在天气。从无字碑出发，一路往上，到了九山（又名韭菜山），雨突然下大了。之前还是零星几滴，这时一下子变成瓢泼大雨。我们一行人装备不够齐全，基本没有防水装备，有妹子冻得瑟瑟发抖，自然也是无法继续了。下山时，风夹着雨吹，衣服袖子也湿了，非常难受。雨水在泥地上冲刷出沟壑，被人踩过后尤其湿滑。还好带了登山杖，大家一手杵着相互搀扶，有惊无险的爬下来了。我真担心出现失温或者滑倒的意外发生。</p><p>半山腰开始下雨，离得十来米就看不清人了。</p><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ac20c2e01f8940c694de40fc827532ac~tplv-k3u1fbpfcp-watermark.image" alt="3731662539567_.pic_hd.jpg"></p><p>因为疫情和开会的原因，回城时经过检查站，短短七八百米，堵了一个半小时。检察人员给每个人身份证拍照核验，真是辛苦。我们四点坐上大巴，晚上九点整到达和平西桥，整整花了五个小时。</p><p>韭菜山下扎营的人们。</p><p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/87515812626b4cdb88a0d53ecae3be39~tplv-k3u1fbpfcp-watermark.image" alt="3721662539566_.pic_hd.jpg"></p><p>下山后给鞋子来了张合影。</p><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/da3eda8a9afc414e8b8af016ceb48be6~tplv-k3u1fbpfcp-watermark.image" alt="3701662539563_.pic_hd.jpg"></p><p>接下来亟需换一双 gtx 的登山鞋，登山包里得常备救生毯和雨衣。</p><p>还有一个教训，千万不要乱吃药！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/36d4dd15c3c5418f80f892a3724f60ae~tplv-k3u1fbpfcp-watermark.image&quot; alt=&quot;371166</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+    <category term="hiking" scheme="https://zhengminhui.github.io/tags/hiking/"/>
+    
+    <category term="徒步" scheme="https://zhengminhui.github.io/tags/%E5%BE%92%E6%AD%A5/"/>
+    
+    <category term="北灵山" scheme="https://zhengminhui.github.io/tags/%E5%8C%97%E7%81%B5%E5%B1%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的键盘</title>
+    <link href="https://zhengminhui.github.io/2022/my-keyboards/"/>
+    <id>https://zhengminhui.github.io/2022/my-keyboards/</id>
+    <published>2022-08-27T23:43:10.000Z</published>
+    <updated>2023-02-03T07:15:29.231Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/137fe9a05e73423da9808ba65a678d85~tplv-k3u1fbpfcp-watermark.image" alt="keyboards.jpg"></p><p>五月的时候在简报里抱怨家里的 filco 在两台电脑之间蓝牙切换不便，于是买了一把 nuphy 的键盘，不巧碰到劳动节放假加矮茶轴缺货，一个多月才送到。拿到手用了一阵子，模样、手感都挺不错。于是把现在拥有的键盘都拿出来，拍了张全家福，顺便写写每把键盘的故事。从老到新的分别是 leopard fc750r 红轴，filco minila 青轴， filco minila 红轴和 nuphy air60 矮茶轴。</p><p>作为一个对办公桌面颇有要求的人，我对键盘的要求有四点。</p><p>第一，要小尺寸，只选 60% 键盘。太大了占桌面空间，数字键几乎用不上，而且键盘小巧也符合我的审美。</p><p>第二，要有方向键。hhkb 确实很漂亮，但是没有原生的方向键，看上去实在感觉不适应，所以一直也没有尝试。</p><p>第三，右上角的键一定要是 backspace，右下角一定是方向键。这点在我看来是最重要的，敲代码或者打字时，即使不看键盘也能快速删除或移动。我十分不喜欢在键盘的右边再放一列功能键。</p><p>第四，要无线，支持蓝牙，能在多台机器之间切换连接。因为没有打竞技游戏的需求，再加上是极简主义爱好者，键盘一定得是无线的。另外家中有 windows 和 mac，实在不想在桌上放两把键盘，所以蓝牙切换十分重要。</p><p>下面说说存货。</p><p>leopard 这把键盘是刚加入华为的时候买的。当时家里有把青轴，每天下班还会和大 z 打打大乱斗。公司没键盘用，于是就挑了这把红轴。应该底座是带钢板的，在桌上挺稳。当时还喜欢自己 diy，给配了一套 pbt 的彩虹键帽换上了。这把键盘的按键间距比较大，以至于后来用惯了 minila，再回头偶尔换这把用时，老是按错。再后来这把键盘就逐渐变成电脑装机后还没有蓝牙连接时使用的了。</p><p>黑色的 filco 是刚回国时买的。滴滴的工位小，国内互联网都这风格，工位摩肩接踵。所以就换了这把紧凑型。青轴手感非常好，写代码很清脆，打字聊天时像汤普森冲锋枪，用了三年，没啥大问题，电池真经用。</p><p>来到 smartnews，刚开始也是把青轴带到办公室去了。但是这边人少，不像原来。有时候下午办公室十分安静，每个人都在闷声看电脑，听不到什么敲键盘的声音。这时候敲青轴，整个办公室都能听到。自己感觉也不好意思，中间有段时间又换上 leopard，用了几天，键程和间距完全不一样，老是敲错，索性买了把一模一样的红轴在办公室用，安静顺滑，奶绿也很好看。</p><p>于是把黑色的青轴带回家用，问题来了。家里有台台式机，平时也会把公司的笔记本带回家开会，于是在两台电脑之间切换成了麻烦事。找了好久 filco minila 的蓝牙连接说明书，也试了好久，都么成功。这时在 twitter 上看到 nuphy，应该是深圳厂家做出海的。我本来不喜欢重复购物，但也实在不想在桌上摆两把键盘，也不想每次回家就用笔去怼 filco 背面的 reset 按钮，一咬牙，买了这把 air60。</p><p>最让人生气的是，当我下单之后，我的 filco 蓝牙切换竟然成功了！也掌握了要领，关键是要关机：先连接 windows，然后关掉 win，自动连接上了 mac，再把 mac 关掉，开 win，好了……不得不佩服日本人的拧巴精神。即便如此，有时候同时开着两台电脑，切换倒腾还是麻烦。</p><p>最后说说手中这把 nuphy，矮茶轴，用起来感觉十分温柔，打字，玩游戏不累。虽然敲击感无法和 filco 比，但是竟然完全能满足我的四个需求，还要啥自行车。如果说一定要找点缺点，也能说上来。比如感觉用料不够扎实，底座的塑料材质有些拉胯；空格键有些不平整，品控还有待加强。type-c 接口的公差配合也不够档次，插线充电时有些松的感觉；背光灯有些山寨感，尤其是充电指示灯，需要从反面看，辨识度不友好；最后电量和 filco 完全不是一个级别。黑色那把 filco 用了四年，只换过一次电池，但是 nuphy 几乎 1-1.5 周就需要充电了，还是在完全关闭背光灯的情况下。但胜在蓝牙切换方便，这些缺点也就忍了。</p><p>现在这几把键盘都挺满意，目前只剩下静电容没尝试过了。以后有机会，再试试 hhkb 吧。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/137fe9a05e73423da9808ba65a678d85~tplv-k3u1fbpfcp-watermark.image&quot; alt=&quot;keyboa</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+    <category term="keyboards" scheme="https://zhengminhui.github.io/tags/keyboards/"/>
+    
+    <category term="filco" scheme="https://zhengminhui.github.io/tags/filco/"/>
+    
+    <category term="nuphy" scheme="https://zhengminhui.github.io/tags/nuphy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我读《心若菩提》</title>
+    <link href="https://zhengminhui.github.io/2022/read-xin-ruo-pu-ti/"/>
+    <id>https://zhengminhui.github.io/2022/read-xin-ruo-pu-ti/</id>
+    <published>2022-08-21T03:39:21.000Z</published>
+    <updated>2023-02-03T07:15:29.231Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前看了 netflix 的《美国工厂》，讲福耀玻璃在美国建厂的，就对曹德旺有些好奇。在剧里对他的刻画给我的感觉是，一副坚持自己——甚至有些带点贬义的老板做派。印象最深的是开幕式不会下雨的的预测，和坚决反对工会的态度。</p><p>这是我 21 年 10 月 4 号写的影评：“大部分的高赞短评都是两年前留的，经过贸易战和疫情，可能会有些新的思考吧（不论对或错，好或坏，只是新的思考（一个在中国美国都工作的码农留（对福耀有点好奇，有机会读一下相关的书”。</p><p>读这本时颇有之前看《大江大河》电视剧的感觉，时间跨度也差不多对得上。看完书，激情彭拜，打了五星，我对曹德旺也有了更新的认识：他是一个胆大的人，也是一个实用主义者。</p><p>说几点我的感想。</p><p>自传类的书要放在那个时间点里去看，有些话，有些事，在那个时代稀松平常，但换了语境就会觉得虚伪做作。</p><p>有人说曹德旺的哥哥当大官，所以福耀的成功不纯粹不干净。曹自己则说他从来没借助过哥哥的力量。我觉得这两种论调都不真实。以曹家和七八十年代的经济水平，乡村教师出身的哥哥能在初期提供多大帮助，不好说；另一方面，当哥哥在政府工作后，无论政商，即使自己不说，对方是否有人情世故的帮助，也很难完全否决。</p><p>自说自话，总有美化和省略的部分，不可全信。择其善者而从之，看传记应该挑选适合自己的学习，没必要纠缠。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;之前看了 netflix 的《美国工厂》，讲福耀玻璃在美国建厂的，就对曹德旺有些好奇。在剧里对他的刻画给我的感觉是，一副坚持自己——甚至有些带点贬义的老板做派。印象最深的是开幕式不会下雨的的预测，和坚决反对工会的态度。&lt;/p&gt;
+&lt;p&gt;这是我 21 年 10 月 4 号写的影</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    <category term="reading" scheme="https://zhengminhui.github.io/categories/report/reading/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SmartNews 一周年</title>
+    <link href="https://zhengminhui.github.io/2022/smartnews-one-year-anniversary/"/>
+    <id>https://zhengminhui.github.io/2022/smartnews-one-year-anniversary/</id>
+    <published>2022-08-14T05:58:25.000Z</published>
+    <updated>2023-02-03T07:15:29.231Z</updated>
+    
+    <content type="html"><![CDATA[<p>8 月 9 号入职一周年了，时间过得飞快。今天随便写写过去一年的收获和变化。</p><p>刚入职时，整个人都是惴惴不安的。还没上两天班，我的 EM 就离职了，当时第一个项目又特别紧急，技术栈也是全新的，边做边学；在国内三年没接触英语，听力口语都需要时间捡起来；还没有搬家，每天通勤两小时；虽然现在回想起来那段时间，觉得也不过如此，但是当时还是很紧张的，晚上也加了一阵子班。</p><p>掰着指头算算，除去一些零散或支线的任务，在两个团队差不多做了四个项目。这点也可以隐约看出公司的一些问题，在方向和投入上不够持续，有些项目做完就没了，缺乏后续跟进和迭代。和上一份工作不同，外企的会议很多，在会上讨论也多，大家倾向于把事情讨论清楚再开工。国内的会议虽然也不少，但大多时候都是几个人唱戏，剩下人磨屁股，而且喜欢标榜开着飞机换引擎，先干起来再说，细节不重要，有的是加班时间来讨论（有一部分，不是所有）。</p><p>在现在的公司，IC 和 EM 是两条发展线路，权责分明，各自有各自的考核方式。虽然有转职的机会，但我暂时还没看到虚线带人的情况，也许是公司规模较小的原因。这种情况下，大家各司其职，做好本职工作就好。和国内互联网不同，IC 也是一条可以持续的发展道路。国内的互联网，越往上，一定要转管理，远离写代码，感觉这样才是人上人（有一部分，不是所有）。</p><p>但是成为 IC 并不意味着不需要交流，这点我有全新的认识。正相反，交流的权重更高了。在外企工作，需要和产品经理聊，和设计师聊，和测试聊，和数据分析师聊。尤其在如今远程工作，跨语言，跨时区的环境下，开发工程师对交流的要求更高。</p><p>Put yourself in the user’s shoes，是我们组设计师在聊天时给我的建议，我觉得很受用。这也是我在产品思维上比较大的一个转变吧。开发需求应该站在用户的角度去想会怎么用，而不是工程师的角度，怎么草草了事。最近用了钉钉里的企业美团外卖，结账步骤一言难尽。</p><p>另外在测试，ci&#x2F;cd， 文档等方面，也和国内互联网有比较大的差别，限于篇幅，就不展开了，以后有机会再写。</p><p>总得来说，这一年过得开心且充实。除了工作上，生活方面也有了改观。这个周期全球经济下行，冲突加剧，工作不易，揾食艰难。希望能偏安一隅，继续苟苟，也想想未来的规划。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;8 月 9 号入职一周年了，时间过得飞快。今天随便写写过去一年的收获和变化。&lt;/p&gt;
+&lt;p&gt;刚入职时，整个人都是惴惴不安的。还没上两天班，我的 EM 就离职了，当时第一个项目又特别紧急，技术栈也是全新的，边做边学；在国内三年没接触英语，听力口语都需要时间捡起来；还没有搬家，</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最热的一周</title>
+    <link href="https://zhengminhui.github.io/2022/the-hottest-week/"/>
+    <id>https://zhengminhui.github.io/2022/the-hottest-week/</id>
+    <published>2022-08-07T05:35:27.000Z</published>
+    <updated>2023-02-03T07:15:29.230Z</updated>
+    
+    <content type="html"><![CDATA[<p>毫无疑问，这是我到北京以来最热的一周。</p><p>每天早上一起来就感觉到闷热潮湿，仿佛回到武汉。从阳台望去，周边矮房子的楼顶都是湿的痕迹，应该是前一晚下了阵雨，早上太阳一晒，水汽蒸发，成了蒸笼。通勤路上，胸口和后背很容易湿透，到了办公室空调一吹，反而还需要穿件外套。晚上跑步也是，湿度大，没跑几步衣服就贴住了，虽然黏，但汗如雨下，还是蛮爽的。</p><p>说起跑步，从五月疫情居家办公开始，我就间歇性的夜跑， 一周也有个三四次，跑的时候放空大脑，清空缓存，观察路人。</p><p>在朝阳北路十里堡的天桥上，每晚都会有一个美团外卖小哥，把摩托开到天桥的正中，看着下面车水马龙，悠闲地半躺在座椅上一边抽烟一边刷抖音，一坐就是一小时。</p><p>天桥下面靠北边，总有个妹子，瘦瘦高高，穿着裙子坐在木椅上，一直低着头玩手机，也是烟不离手，脊椎和颈椎都快九十度了，真希望她能抬起头来玩手机。</p><p>下天桥靠南边，常会见到一对情侣，女的有些胖，老坐在路肩上看手机，一只泰迪老实地蹲在她身边吐舌头，男人在不远处跳绳。我每次从她身后跑过都会啧啧两声和狗子打个招呼。</p><p>因为出门时间大致固定，经过哪个拐角，能遇见哪只狗子，碰到哪些路人，也能记住一二，颇有楚门的世界之感。</p><p>从 3 月到现在已写了 22 篇简报，有一些记录和思考。但有两个问题，第一，我的输入大部分是看书、追剧、听播客、刷推特，输入不足时，就感觉无事可写，没什么倾诉欲。二是在内容上对个人的反思和总结比较少。最近发现 zakas 把他的月报分成几个部分:</p><ol><li>What I’m thinking about: Bun<ul><li>这部分大多数是篇关于技术的文章，这个月聊的是 Bun，最近挺火，前端时间聊过技术债，Types in JS 之类的话题。</li></ul></li><li>What I’m reading<ul><li>这部分罗列最近看的一些书或者文章链接，有一些简短的书评，分享的同时也是自己的信息整理保存</li></ul></li><li>What I’m watching<ul><li>记录了当月看的 youtube 视频，大部分是技术相关</li></ul></li><li>What I’m working on<ul><li>在做的 side project，在写的书，等等。让我惊讶的是他好像在搞装修房子然后出租的活。</li></ul></li></ol><p>订阅的另一位作者也是类似的结构， What I Have Been Up To This Week，然后分别记录了两三件事。</p><p>我觉得这种形式很好，可以更多的关注自己，也可以分散写作的压力：对一件事写 1000 字的难度大于对五件事分别写 200 字。前者需要的准备更多，压力更大。</p><p>最近在读《流浪地球》，其实是部科幻短片合集，用流浪地球做书名来营销，这周应该能看完。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;毫无疑问，这是我到北京以来最热的一周。&lt;/p&gt;
+&lt;p&gt;每天早上一起来就感觉到闷热潮湿，仿佛回到武汉。从阳台望去，周边矮房子的楼顶都是湿的痕迹，应该是前一晚下了阵雨，早上太阳一晒，水汽蒸发，成了蒸笼。通勤路上，胸口和后背很容易湿透，到了办公室空调一吹，反而还需要穿件外套。晚上</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>黑袍纠察队</title>
+    <link href="https://zhengminhui.github.io/2022/end-of-july/"/>
+    <id>https://zhengminhui.github.io/2022/end-of-july/</id>
+    <published>2022-07-31T22:11:33.000Z</published>
+    <updated>2023-02-03T07:15:29.230Z</updated>
+    
+    <content type="html"><![CDATA[<p>七月的最后一周，做的两个项目都上线了，非常开心，一身轻松。虽然这一季度已经过了一个月，这周完成了 Q3 的个人 OKR：八月计划读完 The joy of JavaScript，学完 udemy 上的一个 mysql 课程。现在的工作和 DS 合作密切，提升一下自己的 sql 水平也能更好地理解他们的工作，降低讨论和沟通的门槛。</p><p>月初时候在网上到有人说这一季的黑袍纠察队非常不错，我听说过这个剧，没看过，纠察以为是讲扫黄打非之类的，于是从第一季追起，终于看完了，感觉一般，对这种爽剧不太买账。</p><p>这部剧刚开始的立意还是很新颖的，正剧的超级英雄有点过时了，大家都觉得超人拯救世界理所当然，那么就来点黑化的，超级英雄就是超级坏蛋。虽然对政治，宣传，新闻的吐槽有些隔靴搔痒，第一季总的来说，还行。</p><p>到了第二季，很奇怪，好多剧第二季都会陷入不可避免的下滑，陈词滥调更多了，不管是爱死机，全裸监督，我大胆预测鱿鱼游戏估计也会扑街。在这部剧里，当众人陷入手足无措的时候，主角一定会互相漏出狡黠的微笑，然后不讲逻辑的推进剧情，现在大概知道爽剧是什么样的了。编剧也很辛苦，要吸引观众，只能狂加冲突：情侣价值观的冲突，上下级凝聚团队的冲突，冷酷兄长和弱鸡弟弟的冲突，互相贫嘴但是感情深厚同伙的冲突，不一而足。一部没有情节，只有冲突的剧，就像没菜却做了一桌子作料，齁的人难受，你无时无刻都在看人吵架和误解。</p><p>看到第三季，我已经没什么兴趣了，就想有始有终，强忍着看完。剧集的矛盾越来越 cliche，连情节对话都懒得想新词了，黑哥哥一定要先控制不住自己，然后女儿吓得一动不动，一脸害怕，然后黑哥沉默不语，一副对不起，我并不是故意的表情。这一季为了增加平民和超人斗争的激烈程度，还增加了临时兴奋剂的设定，然后整剧变成了一步反毒品宣传片？男主打着为了保护女主的幌子，不停的嗑药，体验凌驾众人的快感。我觉得这剧三季下来，只看每季的第一集和最后一集就可以了，完全不影响剧情。</p><p>我的一个感受，现在编剧不再制造好的，让人喜爱的角色，而是创造让人痛恨的，让人不适的角色，仿佛有一种审丑的流行。让人讨厌的角色更容易引起传播，引起共鸣或者吐槽，邪恶的角色可以披上直白的外衣，没有道德的压力，甚至增加角色的复杂性。而美好的正派角色则很容易解读为虚伪，做作，一种刻意的表演。世界的娱乐方式发生了巨大的变化，人们的注意力很容易被新鲜事物吸引，一个话题，很快就引爆，然后很快消失。以后很难再出现十季的、广泛传播的美剧了。加上现在的言论空间逐渐缩小，人们也越来越容易被冒犯，演员的言行举止难以控制，作为投资方制片方的风险也很高，所以在剧集中多创造矛盾和话题，今天能赚的钱就别留到明天。有人评价这部剧很好的一点原因就是血腥暴力，我不理解，什么时候露点奶子和几把就算好剧了，那不如直接去看 p 站。</p><p>最后吐槽一下为什么说看这部剧很难受。</p><p>男主说别当联合队长，女主说不行，要当。</p><p>女主说我不想干了，男主说不行，要干。</p><p>女主说别再嗑药了，男主说不行，要磕。</p><p>女主说别和士兵男孩走，男主说不行，要走。</p><p>养父说小孩别去你亲爹那，小孩说不行，要去。</p><p>我去尼玛。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;七月的最后一周，做的两个项目都上线了，非常开心，一身轻松。虽然这一季度已经过了一个月，这周完成了 Q3 的个人 OKR：八月计划读完 The joy of JavaScript，学完 udemy 上的一个 mysql 课程。现在的工作和 DS 合作密切，提升一下自己的 sq</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>橡皮与槟榔</title>
+    <link href="https://zhengminhui.github.io/2022/rubber-and-betel-nut/"/>
+    <id>https://zhengminhui.github.io/2022/rubber-and-betel-nut/</id>
+    <published>2022-07-24T19:25:24.000Z</published>
+    <updated>2023-02-03T07:15:29.230Z</updated>
+    
+    <content type="html"><![CDATA[<p>这周听了两期播客，都比较长，做个总结。其中有诸多细节，引人入胜，还是推荐大家去听。</p><p>第一个是“橡皮股票危机”。1908 年福特推出了 T 型车，将汽车从奢侈品变成了大众消费品，汽车数量激增。橡胶（当时称作橡皮）作为轮胎的重要原料，随之需求量大涨。晚清中国没有橡胶工业，但是南洋有大量的橡胶种植园，所以当上海出现橡胶相关的股票时，在资本方饥饿营销，金融操作的背景下，市场一下子就被点燃了。散户蜂拥而至，而机构投资者开空头支票，大加杠杆，导致股价飞涨。但好景不长，1910 年中，美国对橡胶实行了限制消费政策，橡胶价格持续下跌，股价崩盘。中间掺杂着经济问题，政治问题，官僚问题，最终引发系统性金融风险。</p><p>杠杆，泡沫，挤兑，破产。</p><p>全国的金融危机，一定程度上影响了清政府的收入。迫于经济压力清政府收回原本商办的铁路，引发四川保路运动，清政府从湖北派兵镇压，导致武汉辛亥革命的爆发。</p><p>第二个关于槟榔的访谈，也算是新书《一嚼两千年》的推荐。因为是对话，基本是主持人和作者聊到哪算哪。说说我印象比较深的点。</p><p>槟榔在东南亚有悠久的传统，当地文化中认为白齿具有动物性，比如猫猫狗狗的牙齿的就是白色，所以有染黑齿的传统，以示区别，而长期嚼槟榔正好会染黑牙齿。山海经里就有黑齿国的记载。我印象中日本也有一段时间，贵族女性以染黑牙齿视为尊贵优雅，我本人不是很理解。</p><p>在中国，正如书名一嚼两千年，槟榔长期流行于岭南地区，很长时间都是吃鲜槟榔，因为早期槟榔不易保存，物流不发达，属于高消费人群才吃的起，比如北方的旗人统治阶级也吃槟榔。清末鸦片战争，大量白银流失，银价上涨，原材料无法从海南运到广州，逐渐岭南人嚼槟榔的习惯在民国时瓦解掉了。而旗人在失去土地以后，也吃不起槟榔了。</p><p>1842 年五口通商打破广州一口通商的局面，几十万聚集在广州的挑夫失业。大量的失业人口造成了严重的社会动荡，向北引发了 1850 年的太平天国运动。太平天国战争对皖南，江西战场的毁灭打击，造成了很长时间江西安徽的经济洼地；另一方面，因为湘军的强势和经济优势，引起了槟榔在湖南湘潭的兴起。</p><p>所有成瘾的产品都是资本精挑细选的结果，需要在特定的时间窗口流行起来，否则就会错过机会。这个窗口需要有全球化的基础，需要民众对健康意识薄弱，需要资本的强力推动（英国的茶，美国的烟）。这个节点必须是人类世纪连接起来以后，在现代生物化学提纯技术成形以前，换言之 16-20 世纪没有流行起来，以后就不会再流行了。</p><p>对成瘾品本身来说也是如此，需要有恰当的成瘾性，如咖啡，茶，香烟；但不能强烈摧毁健康，如鸦片，古柯叶；需要方便种植，槟榔在这一环节失败没赶上车，但是茶叶就便于种植；需要易于统治者管控，比如英国人在印度，斯里兰卡种植茶叶；必须易于运输，烟草和茶叶便于干燥后保存，槟榔也不行；必须容易控制收税：卷烟相较于旱烟和水烟，容易管理。这么看来，对现在美国加拿大的大麻合法化进程就能揣度一二了。同时全面禁止电子烟，大力推广大麻，我想应该也有管理上下游的难易成本在里面。</p><p>中国现在已经全面禁止槟榔广告，但是由于广大产业员工就业问题，不可能短时间禁止槟榔产业，且作者认为槟榔不会再广泛流行。我自己亲身经历是，感觉前几年槟榔越来越贵，走小众精品路线，原本是湖南流行，现在湖北四川也能轻易见到槟榔的踪影，夜班出租车司机，网吧里通宵的人，吃的人反而更多了。</p><p>听完节目，我准备看看这本书，豆瓣竟然有 9.6 分，应该很有意思。</p><p>最近北京正值盛夏，蝉声唧唧。不知名的黄色花瓣凋落，马路上车盖上一片一片的，有种李清照的“满地黄花堆积”的感觉。要是知道是什么花就好了。</p><p><a href="https://thatisbiz.fireside.fm/75">1910，让大清亡了的一场股灾</a><br><a href="https://www.bilibili.com/video/BV13Z4y1g7ji?vd_source=4628f143b72829a178be4dc6b023704a">橡皮风潮</a><br><a href="https://www.xiaoyuzhoufm.com/episode/62d5d0659233b6e1210b75cb">失败的成瘾品：与曹雨漫谈槟榔的流行与衰败</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这周听了两期播客，都比较长，做个总结。其中有诸多细节，引人入胜，还是推荐大家去听。&lt;/p&gt;
+&lt;p&gt;第一个是“橡皮股票危机”。1908 年福特推出了 T 型车，将汽车从奢侈品变成了大众消费品，汽车数量激增。橡胶（当时称作橡皮）作为轮胎的重要原料，随之需求量大涨。晚清中国没有橡</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
+  
+</feed>
