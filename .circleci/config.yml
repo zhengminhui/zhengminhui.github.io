@@ -45,7 +45,7 @@ jobs:
             git config --global user.name "zhengminhui"
             git config --global user.email "zhmh1025@hotmail.com"
             git checkout -f master
-            git add public/*
+            git add .
             git commit --allow-empty -m "Automatic commit from CircleCI [skip ci]"
             git push -u origin main
       - run: echo 'successfully finished'
