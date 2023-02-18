@@ -13,7 +13,7 @@ jobs:
   deploy:
     docker:
       - image: node:latest
-    working_directory: $CIRCLE_WORKING_DIRECTORY
+    working_directory: ~/public 
     steps:
       - checkout
       - run:
@@ -21,7 +21,7 @@ jobs:
           command: |
             npm install hexo-cli -g
       - attach_workspace:
-          at: $CIRCLE_WORKING_DIRECTORY/public
+          at: ~/public
       - add_ssh_keys:
           fingerprints:
             - "7e:0d:09:19:ed:19:95:d6:2f:b4:72:03:63:d0:4b:5f"
@@ -36,4 +36,6 @@ workflows:
   deploy-blog-workflow:
     jobs:
       - build
-      - deploy
+      - deploy:
+          requires:
+             - build
