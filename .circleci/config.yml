@@ -54,9 +54,18 @@ jobs:
             git push -u origin master
       - run: echo 'successfully finished'
 workflows:
+  version: 2
   deploy-blog-workflow:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore:
+                - master
+                - gh-pages
       - deploy:
           requires:
-             - build
+            - build
+          filters:
+            branches:
+              only: develop
