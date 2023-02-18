@@ -9,6 +9,7 @@ jobs:
       - checkout
       - run: npm install
       - run: hexo generate
+      - run: npm install -g hexo-cli
 
 workflows:
   deploy-blog-workflow:
