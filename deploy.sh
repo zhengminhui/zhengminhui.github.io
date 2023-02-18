@@ -1,6 +1,6 @@
 echo "start"
 echo $PWD
-hexo g
-cp ./readme.md ./public/
-hexo d
+hexo generate
+cp ./README.md ./public/
+hexo deploy
 hexo clean
