@@ -32,8 +32,8 @@ jobs:
             git config --global user.email "zhmh1025@hotmail.com"
             echo $PWD
             echo 'start deploy'
-            hexo g
-            hexo d
+            hexo generate
+            hexo deploy
             hexo clean
             echo 'successfully finished'
 workflows:
