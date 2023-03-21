@@ -1,10 +1,11 @@
 ---
-title: 守住我的25分钟
+title: 守护我的番茄
 date: 2023-02-27 00:14:20
 categories:
   - life
 tags:
   - thinking
+abbrlink: save-my-pomodoro
 ---
 
 今天和女朋友打游戏玩了 2 个半小时。一局一局，直到赢，上头了。到了晚上很后悔，生闷气，对自己的自律非常失望。
