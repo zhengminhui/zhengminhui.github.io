@@ -6,7 +6,7 @@
   <link href="https://zhengminhui.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhengminhui.github.io/"/>
-  <updated>2023-03-30T10:16:43.108Z</updated>
+  <updated>2023-04-11T07:50:43.367Z</updated>
   <id>https://zhengminhui.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>清明节</title>
+    <link href="https://zhengminhui.github.io/2023/qingming-jie/"/>
+    <id>https://zhengminhui.github.io/2023/qingming-jie/</id>
+    <published>2023-04-08T21:49:46.000Z</published>
+    <updated>2023-04-11T07:50:43.367Z</updated>
+    
+    <content type="html"><![CDATA[<p>上周末回武汉扫墓。今年过年没有回家，上次回武汉还是去年七月独立日，跑回去耍了几天。这次也就呆了两天，后面还有常面试，匆匆回去，匆匆回来。</p><p>在家两天都是五点起，五点半出门，赶个大早，为了避免在出城的公墓堵车。周六早上从东湖边上经过，天还没亮，凌波门外的水泥跳台上，坐的密密麻麻的大学生，都在等着日出，青春，美好，不禁感叹年轻真好。</p><p>回北京后第二天面了讯兔科技。没怎么考算法，问了项目细节，一些前端八股文，给了一段 promise 代码，问打印什么，手写一个防抖或者节流。前段时间一直在刷题，八股文啊异步什么的还没看到，非常生疏。我自己也觉得不应该，挂了也是自然。倒是面试官一上来说，刚刚看了你的博客，觉得你是个挺有意思的人，还搞得我还有些不好意思。</p><p>这周把《你不知道的 JavaScript》的异步章节回顾了一遍，书里的例子特别好，不仅知识点覆盖到，代码也写的明白晓畅。再说前两天那类多个 promise 打印顺序的题，我打心底不喜欢——虽然我没答对。第一，它的代码纠缠不清，是典型的 spaghetti。第二，故意写几个 promise then 来 then 去的， 一大坨代码，缺乏可读性，不正是书里提到的 “your eyes do an awful lot of jumping up and down the code snippet”。故意用这种 bad practice 去考察知识点，我不喜欢。当然，只是针对这种考察方式，环境使然，和面试官无关。</p><p>周中整理了一下过去一年半在 smartnews 做过的项目，找到了些物料，准备单独写篇文章记录，权当 portfolio，就不写在周记里了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;上周末回武汉扫墓。今年过年没有回家，上次回武汉还是去年七月独立日，跑回去耍了几天。这次也就呆了两天，后面还有常面试，匆匆回去，匆匆回来。&lt;/p&gt;
+&lt;p&gt;在家两天都是五点起，五点半出门，赶个大早，为了避免在出城的公墓堵车。周六早上从东湖边上经过，天还没亮，凌波门外的水泥跳台上</summary>
+      
+    
+    
+    
+    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
+    
+    
+    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
+    
+  </entry>
   
   <entry>
     <title>hulu 裁员</title>
@@ -498,31 +523,6 @@
       
     <summary type="html">&lt;p&gt;今天是 9 月 30 号，Q3 的最后一天，好快一年又快过完了。&lt;/p&gt;
 &lt;p&gt;这周还在做美国中期选举的项目，节前把组件用接口的样例数据开发好，节后回来再切换到真实数据。10 月 12 号公司的 Hackathon 还没想好点子，也不知道到时候有无时间去搞，毕竟 elect</summary>
-      
-    
-    
-    
-    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
-    
-    
-    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>九月第四周，放假在即</title>
-    <link href="https://zhengminhui.github.io/2022/2022-30-sep-w4/"/>
-    <id>https://zhengminhui.github.io/2022/2022-30-sep-w4/</id>
-    <published>2022-09-22T23:09:53.000Z</published>
-    <updated>2023-02-18T10:00:02.585Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天是 9 月 22 日周四，现在下午四点，抽一个小时快速记录下本周的事项。</p><p>昨晚加班到一点，解决一个问题。原本觉得事情应该是轻松搞定，钻进去之后发现并不是，还是花了些调研和研究。要实现一个 parliament chart，议会席位图。通常用的库叫 parliament-svg。因为中期选举会有席位的变更，所以设计师希望在图中将诸如 lead, uncontested, net gain, flip 通过不同的 circle 区分开来。所以我需要:</p><ol><li>draw a svg circle with a filled background color and repeated colorful stripes.</li><li>update library source code and render different circles based on seat types.</li></ol><p>难点也是两处</p><ol><li>用 css 画，很简单，用 repeat-linear-gradient 很容易实现。用 svg 则需要使用 pattern。</li><li>parliament-svg 虽然代码不多，但是涉及到 circle 大小和中点怎么计算，需要看源码。另外它使用了 hast, Hypertext Abstract Syntax Tree，还需要去了解一些这个库的相关知识和背景。</li></ol><p>花的时间比较多的点是：</p><ol><li>pattern 没用过，怎么画需要实验。</li><li>一个画出来后，多个在一起，圆上的条纹不均匀，原因是 pattern 里的 width height 和 circle 的半径有关系。需要尝试，调整。</li><li>原库只有计算和绘制 circle 的逻辑，怎么在他的基础上把写好的 pattern 插进去。</li></ol><p>好在最后都解决了，放假有时间整理一下写篇技术博客。</p><p>9 月 18 号凌晨，贵州转运隔离人员的大巴车发生事故，27 人遇难。把整个小区的人拉出来，送到周边县市的做法，虽然不知道从何时开始的，但是看上去执行者（我也不知道该用什么词来形容他们）还蛮喜欢这一招的，屡试不爽。五月时北京疫情，有朋友一整个小区拉到了崇礼云顶的冬奥酒店。因为之前去滑雪住过，记忆犹新。再之前也看到新闻消息，成都疫情，也是把人拉出去，然后宣布社会面清零。这么多趟大巴在路上跑着，总有出事的概率。看到消息时，感觉五味杂陈，但也不知道能说什么，只想记录下这件事，记录下这个时代。</p><p>就像我们无法真切感受从前一样，未来的人会怎么评价我们呢？</p><p>最近伊朗突然爆发大规模的示威冲突，起因是警察以衣着不合规为由，导致一个小女孩不治身亡。让我想起阿拉伯之春的导火线，是一个小贩不堪重负，引火自焚，最后引发一系列的变革。蝴蝶效应，书写历史。</p><p>本周接下来，准备做 election 的地图组件，继续看《曾国藩的正面与侧面》，预计在十一前能看完。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;今天是 9 月 22 日周四，现在下午四点，抽一个小时快速记录下本周的事项。&lt;/p&gt;
-&lt;p&gt;昨晚加班到一点，解决一个问题。原本觉得事情应该是轻松搞定，钻进去之后发现并不是，还是花了些调研和研究。要实现一个 parliament chart，议会席位图。通常用的库叫 parl</summary>
       
     
     
