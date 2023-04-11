@@ -69,7 +69,7 @@ The technology stack employed for this project includes SvelteKit, server-side r
 
 ---
 
-### mischievous
+### miscellaneous
 
 As an experienced developer, I have not only contributed to major projects but also collaborated with other teams on various small and large projects such as games, top cards, and UFBs. In addition, I played a crucial role in bridging the gap between the Product Manager, higher leadership, and the engineering team by learning and understanding new initiatives and directions.
 
