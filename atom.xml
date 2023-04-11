@@ -6,7 +6,7 @@
   <link href="https://zhengminhui.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhengminhui.github.io/"/>
-  <updated>2023-04-11T07:50:43.367Z</updated>
+  <updated>2023-04-11T10:32:16.292Z</updated>
   <id>https://zhengminhui.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Projects at SmartNews: A Look at My Portfolio</title>
+    <link href="https://zhengminhui.github.io/2023/my-projects-at-smartnews-/"/>
+    <id>https://zhengminhui.github.io/2023/my-projects-at-smartnews-/</id>
+    <published>2023-04-11T21:49:46.000Z</published>
+    <updated>2023-04-11T10:32:16.292Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="disaster-info-hub-for-hurricane-and-wildfires"><a href="#disaster-info-hub-for-hurricane-and-wildfires" class="headerlink" title="disaster info hub for hurricane and wildfires"></a>disaster info hub for hurricane and wildfires</h3><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1ed1ab12c02644e184f156cd865b2642~tplv-k3u1fbpfcp-watermark.image" alt="v2_HurricanePR.png"></p><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b6d7b0375744afda6d15d5a4d25ef35~tplv-k3u1fbpfcp-watermark.image" alt="Q32021_WildfiresPR.png"></p><p>The Disaster Info Hub project provides our users with important, time-sensitive information on natural disasters, enabling them to make informed decisions and take action for their safety. This includes hurricane data from AccuWeather, including storm path maps, as well as news articles and tweets on natural disasters. The second version, released a few weeks later, also includes wildfire alerts sourced from The National Weather Service, such as active fire maps and related news articles and tweets. Our tech stack includes SvelteKit, Sass, Server-Side Rendering, Web Components, AWS Amplify, Circleci, sentry, and more.</p><p><a href="https://about.smartnews.com/en/2021/09/08/smartnews-announces-hurricane-disaster-info-hub/">https://about.smartnews.com/en/2021/09/08/smartnews-announces-hurricane-disaster-info-hub/</a></p><p><a href="https://about.smartnews.com/en/2021/09/30/smartnews-announces-wildfire-disaster-info-hub/">https://about.smartnews.com/en/2021/09/30/smartnews-announces-wildfire-disaster-info-hub/</a></p><hr><h3 id="what-to-watch"><a href="#what-to-watch" class="headerlink" title="what to watch"></a>what to watch</h3><p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d976be4c1e104cfe94de9e9ce09da129~tplv-k3u1fbpfcp-watermark.image" alt="w2w_pr.png"></p><p>“What to Watch” is a featured hub in the Entertainment Channel that enables users to peruse articles, trailers, and rankings to aid them in selecting which movies and shows to watch next. Additionally, users can leverage the hub to watch and monitor shows across various major platforms such as Netflix, Hulu, Amazon Prime, and Disney+.</p><p>This product has emerged as one of the top 3 products for user acquisition in SmartNews.</p><p>The technology stack utilized in “What to Watch” includes Next.js, Hooks, Tailwind, Server-Side Rendering, Web Components, AWS Amplify, cloudfront, Circleci, sentry, and more.</p><p><a href="https://about.smartnews.com/en/2022/07/29/smartnews-launches-new-feature-for-movie-and-show-recommendations/">https://about.smartnews.com/en/2022/07/29/smartnews-launches-new-feature-for-movie-and-show-recommendations/</a></p><hr><h3 id="2022-United-States-midterm-election"><a href="#2022-United-States-midterm-election" class="headerlink" title="2022 United States midterm election"></a>2022 United States midterm election</h3><p>The US Election project was successfully delivered on November 8, 2022, providing SmartNews readers with election results and article highlights for House, Senate, and Governor races.</p><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b5bac7812f24e01b7c7983756da3f03~tplv-k3u1fbpfcp-watermark.image" alt="Screenshot 2023-04-11 at 5.35.55 PM.png"></p><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5aa0774d504b4906b6c9044399ba9cb4~tplv-k3u1fbpfcp-watermark.image" alt="Screenshot 2023-04-11 at 5.37.25 PM.png"></p><p>The project achieved significant success in terms of active user engagement, CTR, and time spent on the platform.</p><p>The tech stack for this project includes Next.js, Hooks, Tailwind, Server-Side Rendering, Echarts, D3, AWS CloudFront, Sentry, stc.</p><p><a href="https://isabelyi.com/info-consumption-smartnews">https://isabelyi.com/info-consumption-smartnews</a></p><hr><h3 id="APLP-Article-Preview-Landing-Page"><a href="#APLP-Article-Preview-Landing-Page" class="headerlink" title="APLP (Article Preview Landing Page)"></a>APLP (Article Preview Landing Page)</h3><p>APLP, or Article Preview Landing Page, is a powerful marketing tool that has proven effective in assisting the tech squad to achieve D0 targets. Users have great interests in interacted with it and redirect to app store.</p><p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/99a4ee5569264105997705e4d2d0b751~tplv-k3u1fbpfcp-watermark.image" alt="www.smartnews.com_p_4516723574106495452_placement=article-preview-social&amp;utm_campaign=sn_lid%3A4516723574106495452%7Csn_channel%3Acr_en_us_local&amp;utm_source=share_ios_other&amp;share_id=ZpTkmc(iPhone 12 Pro).png"></p><p>It effectively attracts new users who are interested in interacting with the page and ultimately directs them to the app store to download the app.</p><p>After the release, the Android D0 increased by 2.5 times and the iOS D0 increased by 6 times in the first month alone. Additionally, the total share D0 increased by 2 times.</p><p>The technology stack employed for this project includes SvelteKit, server-side rendering, Tailwind CSS, JSDOM, Lottie, AWS CloudFront, Sentry, Storybook, Jest, etc.</p><hr><h3 id="mischievous"><a href="#mischievous" class="headerlink" title="mischievous"></a>mischievous</h3><p>As an experienced developer, I have not only contributed to major projects but also collaborated with other teams on various small and large projects such as games, top cards, and UFBs. In addition, I played a crucial role in bridging the gap between the Product Manager, higher leadership, and the engineering team by learning and understanding new initiatives and directions.</p><p>Effective communication with UI designers and Product Managers has been an essential part of my work to discuss product details and ensure smooth collaboration. Moreover, I worked closely with data analysts to analyze user behavior and event logs to further improve our product’s user experience.</p><hr><p>Finally, I am actively seeking a remote or on-site position in Beijing, China. If you have any front-end openings, please feel free to contact me. I would greatly appreciate it.</p><p>Thanks for reading!</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;disaster-info-hub-for-hurricane-and-wildfires&quot;&gt;&lt;a href=&quot;#disaster-info-hub-for-hurricane-and-wildfires&quot; class=&quot;headerlink&quot; title=&quot;di</summary>
+      
+    
+    
+    
+    <category term="summary" scheme="https://zhengminhui.github.io/categories/summary/"/>
+    
+    
+    <category term="smartnews" scheme="https://zhengminhui.github.io/tags/smartnews/"/>
+    
+    <category term="web-development" scheme="https://zhengminhui.github.io/tags/web-development/"/>
+    
+    <category term="portfolio" scheme="https://zhengminhui.github.io/tags/portfolio/"/>
+    
+    <category term="front-end" scheme="https://zhengminhui.github.io/tags/front-end/"/>
+    
+  </entry>
   
   <entry>
     <title>清明节</title>
@@ -498,31 +528,6 @@
       
     <summary type="html">&lt;p&gt;十一去了呼伦贝尔自驾玩了一圈，行程可谓刺激。出发之前，大家也有些忐忑，出了北京，会不会回不来了。虽然有预期，但是结果还是出乎所有人的意料。我称之为呼伦贝尔东三省流窜记。&lt;/p&gt;
 &lt;p&gt;day1，十月一号。第一站飞机落地海拉尔，租上车就出发了。出城前简单吃了顿俄餐，卢布里西餐</summary>
-      
-    
-    
-    
-    <category term="report" scheme="https://zhengminhui.github.io/categories/report/"/>
-    
-    
-    <category term="week" scheme="https://zhengminhui.github.io/tags/week/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>到内蒙去</title>
-    <link href="https://zhengminhui.github.io/2022/plan-trip-to-inner-mongolia/"/>
-    <id>https://zhengminhui.github.io/2022/plan-trip-to-inner-mongolia/</id>
-    <published>2022-09-30T23:14:24.000Z</published>
-    <updated>2023-02-18T10:00:02.585Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天是 9 月 30 号，Q3 的最后一天，好快一年又快过完了。</p><p>这周还在做美国中期选举的项目，节前把组件用接口的样例数据开发好，节后回来再切换到真实数据。10 月 12 号公司的 Hackathon 还没想好点子，也不知道到时候有无时间去搞，毕竟 election 的东西现在是最高优先级。</p><p>但是说实话感觉这个项目做着没有节奏感，也没成就感。过了十月中旬，需要好好思考下接下来做些什么了，感觉这一年做的事情都很表面，不够系统，也不够深入，准备花点时间找个领域深挖一下。</p><p>国庆节准备去内蒙，又可以解锁一个新的省份。原本计划海拉尔——阿尔山大环线，但是考虑到自驾游，舟车劳顿，不想大家太辛苦，把阿尔山去掉了，就在呼伦贝尔海拉尔转转，还会去中俄边境。16 号开二十大，进京肯定不容易。Anyway 希望一切顺利，旅途平安，回来再写游记。</p><p>《曾国藩的正面与侧面》在十一之前无法看完了。最近工作较忙，晚上还在收拾行李，从内蒙旅行回来再读吧。顺便带上了《卡拉马佐夫兄弟》，飞机上可以看。迄今为止，今年一共读完了 15 本书，阅读的习惯还是不够好，不够自律。数字不是目的，而是在通往目的地的路标。Q4 希望可以把阅读时间固定下来，到年底争取可以读完 24 本书。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;今天是 9 月 30 号，Q3 的最后一天，好快一年又快过完了。&lt;/p&gt;
-&lt;p&gt;这周还在做美国中期选举的项目，节前把组件用接口的样例数据开发好，节后回来再切换到真实数据。10 月 12 号公司的 Hackathon 还没想好点子，也不知道到时候有无时间去搞，毕竟 elect</summary>
       
     
     
