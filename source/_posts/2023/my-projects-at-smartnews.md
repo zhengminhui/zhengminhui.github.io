@@ -8,7 +8,7 @@ tags:
   - portfolio
   - web-development
   - front-end
-abbrlink: my-projects-at-smartnews-
+abbrlink: my-projects-at-smartnews
 ---
 
 ### disaster info hub for hurricane and wildfires
