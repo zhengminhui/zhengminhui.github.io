@@ -38,9 +38,9 @@
     
     <category term="smartnews" scheme="https://zhengminhui.github.io/tags/smartnews/"/>
     
-    <category term="web-development" scheme="https://zhengminhui.github.io/tags/web-development/"/>
-    
     <category term="portfolio" scheme="https://zhengminhui.github.io/tags/portfolio/"/>
+    
+    <category term="web-development" scheme="https://zhengminhui.github.io/tags/web-development/"/>
     
     <category term="front-end" scheme="https://zhengminhui.github.io/tags/front-end/"/>
     
@@ -352,9 +352,9 @@
     
     <category term="setup" scheme="https://zhengminhui.github.io/tags/setup/"/>
     
-    <category term="workspace" scheme="https://zhengminhui.github.io/tags/workspace/"/>
-    
     <category term="web-development" scheme="https://zhengminhui.github.io/tags/web-development/"/>
+    
+    <category term="workspace" scheme="https://zhengminhui.github.io/tags/workspace/"/>
     
   </entry>
   
