@@ -9,13 +9,13 @@ export async function get() {
   const sortedPosts = getSortedPosts(posts);
   return rss({
     title: SITE.title,
-    description: SITE.desc,
+    description: SITE.desc || "description",
     site: SITE.website,
     items: sortedPosts.map(({ data }) => ({
       link: `posts/${slugify(data)}`,
       title: data.title,
-      description: data.description,
-      pubDate: new Date(data.pubDatetime),
+      description: data.description || "description",
+      pubDate: new Date(data.date),
     })),
   });
 }
