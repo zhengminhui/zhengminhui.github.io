@@ -6,3 +6,4 @@ _hide
 source/.obsidian/
 db.json
 .vercel
+.astro
