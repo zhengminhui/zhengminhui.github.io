@@ -4,7 +4,7 @@ date: 2023-02-27 00:14:20
 categories:
   - life
 tags:
-  - thinking
+  - thought
 abbrlink: save-my-pomodoro
 ---
 

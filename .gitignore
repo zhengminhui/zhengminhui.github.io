@@ -36,3 +36,7 @@ pnpm-debug.log*
 .vercel
 .astro
 settings.json
+
+src/content/blog/.obsidian
+.vscode/
+.idea/

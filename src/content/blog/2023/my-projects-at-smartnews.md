@@ -1,14 +1,14 @@
 ---
 title: "Projects at SmartNews: A Look at My Portfolio"
 date: 2023-04-11 14:49:46
-categories:
-  - summary
 tags:
+  - summary
   - smartnews
   - portfolio
   - web-development
   - front-end
 abbrlink: my-projects-at-smartnews
+featured: true
 ---
 
 ### disaster info hub for hurricane and wildfires
