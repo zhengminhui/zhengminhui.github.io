@@ -6,7 +6,6 @@ tags:
   - smartnews
   - portfolio
   - web-development
-  - front-end
 abbrlink: my-projects-at-smartnews
 featured: true
 ---
