@@ -6,7 +6,7 @@ tags:
   - smartnews
   - portfolio
   - web-development
-abbrlink: my-projects-at-smartnews
+postSlug: my-projects-at-smartnews
 featured: true
 ---
 

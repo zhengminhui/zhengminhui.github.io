@@ -8,7 +8,7 @@ tags:
   - capture/bubbling
   - delegate
   - javascript
-abbrlink: "96058034"
+postSlug: "96058034"
 date: 2018-04-15 16:47:42
 ---
 

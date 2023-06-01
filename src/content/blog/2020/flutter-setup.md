@@ -5,7 +5,7 @@ categories:
 tags:
   - Flutter
   - setup
-abbrlink: ec9f837c
+postSlug: ec9f837c
 date: 2020-01-16 22:09:18
 ---
 

@@ -6,7 +6,7 @@ tags:
   - setup
   - workspace
   - web-development
-abbrlink: my-working-mac-setup
+postSlug: my-working-mac-setup
 date: 2023-01-28 14:56:12
 ---
 

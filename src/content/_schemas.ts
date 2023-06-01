@@ -12,7 +12,6 @@ export const blogSchema = z
     ogImage: z.string().optional(),
     description: z.string().optional(),
     categories: z.array(z.string()).default(["default"]),
-    abbrlink: z.string().optional(),
   })
   .strict();
 

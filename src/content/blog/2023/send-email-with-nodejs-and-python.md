@@ -7,5 +7,5 @@ tags:
   - nodejs
   - python
   - email
-abbrlink: send-email-with-nodejs-and-python
+postSlug: send-email-with-nodejs-and-python
 ---

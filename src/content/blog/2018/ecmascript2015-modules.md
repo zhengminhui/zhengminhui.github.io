@@ -6,7 +6,7 @@ tags:
   - ECMAScript2015
   - es6
   - module
-abbrlink: 646f8dec
+postSlug: 646f8dec
 date: 2018-04-07 17:30:40
 ---
 

@@ -3,7 +3,7 @@ title: 2017年中总结
 categories:
   - life
   - summary
-abbrlink: 543d8669
+postSlug: 543d8669
 date: 2017-06-06 23:20:20
 tags:
   - summary

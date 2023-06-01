@@ -6,7 +6,7 @@ tags:
   - javascript
   - setTimeout
   - setInterval
-abbrlink: d1698058
+postSlug: d1698058
 date: 2018-10-20 16:55:28
 ---
 

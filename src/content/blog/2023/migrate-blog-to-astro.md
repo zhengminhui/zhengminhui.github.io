@@ -6,7 +6,7 @@ tags:
   - tech
   - astro
   - blog
-abbrlink: migrate-blog-to-astro
+postSlug: migrate-blog-to-astro
 ---
 
 Step:

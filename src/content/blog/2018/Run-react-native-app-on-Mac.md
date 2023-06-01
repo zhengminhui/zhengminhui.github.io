@@ -6,7 +6,7 @@ tags:
   - react
   - react native
   - Xcode
-abbrlink: b18b9540
+postSlug: b18b9540
 date: 2018-02-05 01:05:04
 ---
 

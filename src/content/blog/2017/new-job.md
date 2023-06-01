@@ -2,7 +2,7 @@
 title: 新工作
 categories:
   - life
-abbrlink: fe5ddefd
+postSlug: fe5ddefd
 date: 2017-02-05 15:49:30
 tags:
   - life

@@ -7,7 +7,7 @@ tags:
   - es7
   - decorator
   - javascript
-abbrlink: 89c05b44
+postSlug: 89c05b44
 date: 2018-10-20 17:14:24
 ---
 
@@ -109,8 +109,8 @@ Garfield.sing();
 
 explanation:
 
-target — class that the property is a part of  
-name — the name of the property the decorator is modifying  
+target — class that the property is a part of
+name — the name of the property the decorator is modifying
 descriptor — property descriptor. Think: object passed to Object.defineProperty
 
 #### Reference and Reading

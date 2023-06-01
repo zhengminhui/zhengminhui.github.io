@@ -5,7 +5,7 @@ categories:
   - life
 tags:
   - thought
-abbrlink: save-my-pomodoro
+postSlug: save-my-pomodoro
 ---
 
 今天和女朋友打游戏玩了 2 个半小时。一局一局，直到赢，上头了。到了晚上很后悔，生闷气，对自己的自律非常失望。

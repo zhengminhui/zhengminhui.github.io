@@ -6,7 +6,7 @@ tags:
   - books
   - reading
   - javascript
-abbrlink: 6fb9a62a
+postSlug: 6fb9a62a
 date: 2020-04-01 23:44:32
 ---
 

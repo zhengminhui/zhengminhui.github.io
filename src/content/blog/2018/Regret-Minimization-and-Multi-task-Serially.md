@@ -2,7 +2,7 @@
 title: Regret Minimization and Multi-task Serially
 categories:
   - life
-abbrlink: eaf5670e
+postSlug: eaf5670e
 date: 2018-02-23 17:29:46
 tags:
   - amazon

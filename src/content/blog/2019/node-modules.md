@@ -7,7 +7,7 @@ tags:
   - modules
   - exports
   - javascript
-abbrlink: c505c167
+postSlug: c505c167
 date: 2019-02-18 17:11:02
 ---
 

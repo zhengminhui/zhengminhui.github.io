@@ -7,7 +7,7 @@ tags:
   - books
   - javascript
   - investment
-abbrlink: 23ae8ddc
+postSlug: 23ae8ddc
 date: 2020-04-08 19:16:56
 ---
 

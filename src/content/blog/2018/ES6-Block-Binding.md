@@ -10,7 +10,7 @@ tags:
   - const
   - block binding
   - hoisting
-abbrlink: 8d1d7da4
+postSlug: 8d1d7da4
 date: 2018-05-03 00:07:52
 ---
 

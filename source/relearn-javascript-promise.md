@@ -7,7 +7,7 @@ tags:
   - javascript
   - promise
   - programming
-abbrlink: relearn-javascript-promise
+postSlug: relearn-javascript-promise
 ---
 
 async programming
