@@ -14,6 +14,8 @@ Step:
 1. install theme
 2. zod schema
 3. font npm
+   1. https://github.com/lxgw/LxgwWenKai
+   2. https://github.com/chawyehsu/lxgw-wenkai-webfont
 4. favicon, about page
 5. some ui tweet
 6. vercel deploy
