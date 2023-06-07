@@ -7,7 +7,7 @@ tags:
   - nodejs
   - python
   - email
-postSlug:
+postSlug: project-doris
 ---
 
 send-email-with-nodejs-and-python

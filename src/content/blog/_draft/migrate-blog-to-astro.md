@@ -20,6 +20,16 @@ Step:
 5. some ui tweet
 6. vercel deploy
 
+```js
+ import vercel from "@astrojs/vercel/static";
+
+   output: "static",
+adapter: vercel({
+  analytics: true,
+}),
+
+```
+
 Todo:
 
 1. next/prev post

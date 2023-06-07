@@ -1,5 +1,5 @@
 ---
-title: LeetCode 75 Day d
+title: LeetCode 75 Day 2
 date: 2023-06-07 14:47:32
 tags:
   - leetcode-75
