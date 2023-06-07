@@ -1,5 +1,5 @@
 ---
-title: "Send email with nodejs and python"
+title: Doris Project
 date: 2023-06-01 21:57:32
 draft: true
 tags:
@@ -7,5 +7,9 @@ tags:
   - nodejs
   - python
   - email
-postSlug: send-email-with-nodejs-and-python
+postSlug:
 ---
+
+send-email-with-nodejs-and-python
+
+nextjs cache
