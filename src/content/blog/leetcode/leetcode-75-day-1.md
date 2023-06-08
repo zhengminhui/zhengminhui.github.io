@@ -1,10 +1,10 @@
 ---
-title: LeetCode 75 Day 1
+title: LeetCode 75 Day 1 数组/字符串
 date: 2023-06-06 14:56:14
 tags:
   - leetcode-75
   - algorithm
-postSlug: leetcode-75-day-1
+postSlug: leetcode-75-day-1-array-string
 ---
 
 昨天把 leetcode top 100 liked 题库刷完了。今天开始做 top 75，每天 3-5 题，考虑到这个月有端午节，回家几天会有中断，预计下月初做完。顺序就按照题库的门类来，每道题主要写下思路和需要注意的点，力求简单，持之以恒。

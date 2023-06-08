@@ -1,10 +1,10 @@
 ---
-title: LeetCode 75 Day 2
+title: LeetCode 75 Day 2 数组/字符串
 date: 2023-06-07 14:47:32
 tags:
   - leetcode-75
   - algorithm
-postSlug: leetcode-75-day-2
+postSlug: leetcode-75-day-2-array-string
 ---
 
 今天做了 5 题，数组字符串部分做完。
