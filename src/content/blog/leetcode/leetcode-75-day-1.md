@@ -1,5 +1,5 @@
 ---
-title: LeetCode 75 Day 1 数组字符串
+title: LeetCode 75 Day 1 数组和字符串
 date: 2023-06-06 14:56:14
 tags:
   - leetcode-75
