@@ -51,16 +51,21 @@ inject();
       <h2>Recent Posts</h2>
       <ul>
         {
-          sortedPosts.map(
-            ({ data }, index) =>
-              index < 5 && (
-                <Card
-                  href={`/posts/${slugify(data)}`}
-                  frontmatter={data}
-                  secHeading={false}
-                />
-              )
-          )
+          sortedPosts
+            .filter(({ data }) => {
+              return !data.tags.includes("leetcode");
+            })
+            .map(({ data }, index) => {
+              return (
+                index < 5 && (
+                  <Card
+                    href={`/posts/${slugify(data)}`}
+                    frontmatter={data}
+                    secHeading={false}
+                  />
+                )
+              );
+            })
         }
       </ul>
       <div class="all-posts-btn-wrapper">
