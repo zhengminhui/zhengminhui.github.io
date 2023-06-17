@@ -1,11 +1,8 @@
 ---
 title: Regret Minimization and Multi-task Serially
-categories:
-  - life
 postSlug: eaf5670e
 date: 2018-02-23 17:29:46
 tags:
-  - amazon
   - thought
 ---
 

@@ -1,14 +1,10 @@
 ---
 title: Promise vs Observables
-categories:
-  - web
 tags:
-  - ECMAScript2015
   - es6
   - promise
-  - Observables
-  - subscription
-  - subscribe
+  - javascript
+  - async-programming
 postSlug: 24019ac5
 date: 2019-01-27 01:37:04
 ---

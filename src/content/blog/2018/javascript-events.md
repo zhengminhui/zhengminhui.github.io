@@ -3,10 +3,6 @@ title: JavaScript Events
 categories:
   - web
 tags:
-  - window
-  - events
-  - capture/bubbling
-  - delegate
   - javascript
 postSlug: "96058034"
 date: 2018-04-15 16:47:42

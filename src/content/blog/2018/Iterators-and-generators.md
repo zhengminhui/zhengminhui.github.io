@@ -3,7 +3,6 @@ title: Iterators and generators
 categories:
   - web
 tags:
-  - ECMAScript2015
   - es6
   - iterators
   - generators

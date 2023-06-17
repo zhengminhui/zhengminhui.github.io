@@ -3,8 +3,7 @@ title: Decorators in JavaScript
 categories:
   - web
 tags:
-  - ECMAScript2016
-  - es7
+  - es6
   - decorator
   - javascript
 postSlug: 89c05b44

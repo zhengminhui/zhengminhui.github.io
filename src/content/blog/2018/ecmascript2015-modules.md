@@ -1,9 +1,8 @@
 ---
-title: ECMAScript2015 modules
+title: ES6 modules
 categories:
   - web
 tags:
-  - ECMAScript2015
   - es6
   - module
 postSlug: 646f8dec

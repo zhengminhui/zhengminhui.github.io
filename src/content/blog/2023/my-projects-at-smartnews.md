@@ -4,7 +4,6 @@ date: 2023-04-11 14:49:46
 tags:
   - summary
   - smartnews
-  - portfolio
   - web-development
 postSlug: my-projects-at-smartnews
 featured: true

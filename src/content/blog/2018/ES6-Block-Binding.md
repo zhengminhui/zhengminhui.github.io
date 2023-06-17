@@ -3,13 +3,8 @@ title: ES6 Block Binding
 categories:
   - web
 tags:
-  - ECMAScript2015
   - es6
-  - var
-  - let
-  - const
-  - block binding
-  - hoisting
+  - javascript
 postSlug: 8d1d7da4
 date: 2018-05-03 00:07:52
 ---
