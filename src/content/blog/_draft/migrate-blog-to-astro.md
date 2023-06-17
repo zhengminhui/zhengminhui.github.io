@@ -43,4 +43,7 @@ Todo:
 9. ipad logo wordbreak
 10. chinese tags in breadcome encoded
 11. localhost display draft
-12. CMS?
+
+sanity cms integrate
+
+import external data
