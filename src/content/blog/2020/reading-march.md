@@ -1,10 +1,8 @@
 ---
 title: 三月读书
-categories:
+tags:
   - life
   - reading
-tags:
-  - books
   - javascript
   - investment
 postSlug: 23ae8ddc

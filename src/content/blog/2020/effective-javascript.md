@@ -3,7 +3,6 @@ title: 我读 Effective JavaScript
 categories:
   - life
 tags:
-  - books
   - reading
   - javascript
 postSlug: 6fb9a62a

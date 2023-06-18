@@ -5,7 +5,6 @@ categories:
 tags:
   - hexo
   - blog
-  - github
 postSlug: a183496f
 date: 2017-04-09 22:50:50
 ---
