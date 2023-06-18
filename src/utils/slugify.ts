@@ -3,8 +3,9 @@ import type { BlogFrontmatter } from "@content/_schemas";
 
 export const slugifyStr = (str: string) => slugger(str);
 
-const slugify = (post: BlogFrontmatter) =>
-  post.postSlug ? slugger(post.postSlug) : slugger(post.title);
+const slugify = (post: BlogFrontmatter) => {
+  return post.postSlug ? slugger(post.postSlug) : slugger(post.title);
+};
 
 export const slugifyAll = (arr: string[]) => arr.map(str => slugifyStr(str));
 
