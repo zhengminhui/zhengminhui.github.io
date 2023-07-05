@@ -1,8 +1,7 @@
 ---
 title: LeetCode 75 Day 10 二分查找和回溯
 date: 2023-06-19 11:35:58
-draft: false
-featured: false
+draft: true
 tags:
   - leetcode
   - leetcode-75
@@ -20,8 +19,8 @@ postSlug: leetcode-75-day-10-binary-search-backtracing
 /**
  * Forward declaration of guess API.
  * @param {number} num   your guess
- * @return 	     -1 if num is higher than the picked number
- *			      1 if num is lower than the picked number
+ * @return      -1 if num is higher than the picked number
+ *      1 if num is lower than the picked number
  *               otherwise return 0
  * var guess = function(num) {}
  */
