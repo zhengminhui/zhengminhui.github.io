@@ -4,7 +4,7 @@ date: {{date}} {{time}}
 draft: true
 featured: false
 tags:
-  - tag
+  - week
 description: example description
 ogImage: "og-image size 1200 x 640"
 postSlug: {{title}}
