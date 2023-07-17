@@ -1,6 +1,6 @@
 ---
-title: Project Doris 中期总结
-date: 2023-07-17 17:21:53
+title: Project Doris mid-term retro
+date: 2023-06-19 17:21:53
 draft: false
 featured: true
 tags:
