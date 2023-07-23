@@ -6,7 +6,7 @@
     "start": "astro dev",
     "build": "astro build && jampack ./dist",
     "build-local": "astro build",
-    "preview": "astro preview",
+    "preview": "astro build",
     "sync": "astro sync",
     "astro": "astro",
     "format:check": "prettier --plugin-search-dir=. --check .",
