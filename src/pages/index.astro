@@ -57,7 +57,7 @@ inject();
             })
             .map(({ data }, index) => {
               return (
-                index < 5 && (
+                index < 20 && (
                   <Card
                     href={`/posts/${slugify(data)}`}
                     frontmatter={data}
