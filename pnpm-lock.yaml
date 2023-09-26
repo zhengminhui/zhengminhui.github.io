@@ -11,9 +11,6 @@ dependencies:
   '@astrojs/vercel':
     specifier: ^4.0.5
     version: 4.0.5(astro@3.1.4)
-  '@fontsource/jetbrains-mono':
-    specifier: ^5.0.12
-    version: 5.0.12
   '@resvg/resvg-js':
     specifier: ^2.4.1
     version: 2.4.1
@@ -29,9 +26,6 @@ dependencies:
   github-slugger:
     specifier: ^2.0.0
     version: 2.0.0
-  lxgw-wenkai-webfont:
-    specifier: ^1.7.0
-    version: 1.7.0
   remark-collapse:
     specifier: ^0.1.2
     version: 0.1.2
@@ -968,10 +962,6 @@ packages:
     resolution: {integrity: sha512-NCC3zz2+nvYd+Ckfh87rA47zfu2QsQpvc6k1yzTk+b9KzRj0wkGa8LSoGOXN6Zv4lRf/EIoZ80biDh9HOI+RNQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
-
-  /@fontsource/jetbrains-mono@5.0.12:
-    resolution: {integrity: sha512-BO2in8zNXWUn1TJsPWgL2qSMYU2SQKoKOmJ9FRrE9gMFtPhEDKgxc0hUCVmeDUcMFrafFEn+KqZ5a85z8rwMzA==}
-    dev: false
 
   /@humanwhocodes/config-array@0.11.11:
     resolution: {integrity: sha512-N2brEuAadi0CcdeMXUkhbZB84eskAc8MEX1By6qEchoVywSgXPIjou4rYsl0V3Hj0ZnuGycGCjdNgockbzeWNA==}
@@ -3960,10 +3950,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
-
-  /lxgw-wenkai-webfont@1.7.0:
-    resolution: {integrity: sha512-kVJmT4xMAyOLhG6q0w63wJkVU7RP8UMQRGoAWj9tnpzL7sWFFYiEHBdUQyW9myqBQFa5SQfWfa2VLYF4IJBL5g==}
-    dev: false
 
   /magic-string@0.30.3:
     resolution: {integrity: sha512-B7xGbll2fG/VjP+SWg4sX3JynwIU0mjoTc6MPpKNuIvftk6u6vqhDnk1R80b8C2GBR6ywqy+1DcKBrevBg+bmw==}
