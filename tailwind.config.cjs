@@ -57,7 +57,13 @@ module.exports = {
       transparent: "transparent",
     },
     fontFamily: {
-      mono: ["JetBrains Mono", "LXGW WenKai Mono", "monospace"],
+      mono: [
+        "Microsoft Yahei UI",
+        "sans-serif",
+        "system-ui",
+        "Courier",
+        "Courier New",
+      ],
     },
     // },
   },
