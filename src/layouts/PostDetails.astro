@@ -4,14 +4,18 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
+// import LinkButton from "@components/LinkButton.astro";
 import type { CollectionEntry } from "astro:content";
+// import { getCollection, getDataEntryById } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 
 export interface Props {
   post: CollectionEntry<"blog">;
 }
+// const posts = await getCollection("blog", ({ data }) => !data.draft);
 
 const { post } = Astro.props;
+// const { id, slug } = post;
 
 const { title, author, description, ogImage, date, tags } = post.data;
 
@@ -19,6 +23,23 @@ const { Content } = await post.render();
 
 const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
   .href;
+
+// console.log({ post, id, slug })
+// const curIndex = posts.sort((a,b) => new Date(a.data.date) - new Date(b.data.date)).map(p => p.slug).indexOf(slug);
+// console.log({ curIndex });
+
+// posts.map((dt) => {
+//   console.log(dt.data)
+// })
+// console.log(posts.length)
+// const prevPost = {
+//   id: posts[curIndex - 1].data.postSlug,
+//   index: curIndex - 1,
+// }
+// const nextPost = {
+//   id: posts[curIndex + 1].data.postSlug,
+//   index: curIndex + 1,
+// }
 ---
 
 <Layout title={title} author={author} description={description} ogImage={ogUrl}>
@@ -45,6 +66,22 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
     <ul class="tags-container">
       {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
     </ul>
+    <!-- <LinkButton
+          disabled={prevPost.index === 0}
+          href={`/posts/${prevPost.id}`}
+          className={`mr-4 select-none `}
+          ariaLabel="Previous"
+        >
+          Prev
+        </LinkButton>
+        <LinkButton
+          disabled={nextPost.index === posts.length}
+          href={`/posts/${nextPost.id}`}
+          className={`ml-4 select-none `}
+          ariaLabel="Next"
+        >
+          Next
+        </LinkButton> -->
   </main>
   <Footer />
 </Layout>
@@ -54,7 +91,7 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
     @apply mx-auto w-full max-w-3xl px-4 pb-12;
   }
   .post-title {
-    @apply text-2xl font-semibold text-skin-accent;
+    @apply text-2xl font-medium text-skin-accent;
   }
   .tags-container {
     @apply my-8;
