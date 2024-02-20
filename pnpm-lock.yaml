@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   "@astrojs/rss":
-    specifier: ^2.4.4
-    version: 2.4.4
+    specifier: ^4.0.5
+    version: 4.0.5
   "@astrojs/vercel":
-    specifier: ^6.1.4
-    version: 6.1.4(astro@4.4.0)(react@18.2.0)
+    specifier: ^7.3.1
+    version: 7.3.1(astro@4.4.0)(react@18.2.0)
   "@resvg/resvg-js":
     specifier: ^2.6.0
     version: 2.6.0
@@ -198,10 +198,10 @@ packages:
       - vite
     dev: true
 
-  /@astrojs/rss@2.4.4:
+  /@astrojs/rss@4.0.5:
     resolution:
       {
-        integrity: sha512-HQFoHyHVoODyeyAFoVPej8OOZowiuXvB5AFIzY4AiPCdwlBz5JGpzW5vPARG/FCqAI9AS3Wi0sU/RZh3Cu8SWQ==,
+        integrity: sha512-IyJVL6z09AQtxbgLaAwebT3T5YKe4oTHDesqydJv1KLHw+zEzzMCFuuNsEyxjiqu7df9+DDCpDXLj/WRiEUXvw==,
       }
     dependencies:
       fast-xml-parser: 4.3.4
@@ -253,13 +253,13 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@astrojs/vercel@6.1.4(astro@4.4.0)(react@18.2.0):
+  /@astrojs/vercel@7.3.1(astro@4.4.0)(react@18.2.0):
     resolution:
       {
-        integrity: sha512-x+iugOR9TpAtqpvWzmxAkKi9TJQYAUVruzK1cimADi1ZeHr+e1z2wSCL1+phJmJetABjuM6XFcpPa3LPt+GA2w==,
+        integrity: sha512-nzpvuRIJMbmLXd0nQpVrOGCPOEx792aAI25aFNK3uC0lD/yGyAlY4nHkCeaE/c+0vkiRdCbfGlHujz3emWpg2w==,
       }
     peerDependencies:
-      astro: ^4.0.2
+      astro: ^4.2.0
     dependencies:
       "@astrojs/internal-helpers": 0.2.1
       "@vercel/analytics": 1.2.1(react@18.2.0)

@@ -7,7 +7,7 @@ import { SITE } from "@config";
 
 export async function GET(context: RSSOptions) {
   const posts = await getCollection("blog");
-  console.log(context.site, SITE.website);
+  // console.log(context.site, SITE.website);
   const sortedPosts = getSortedPosts(posts);
   return rss({
     title: SITE.title,
