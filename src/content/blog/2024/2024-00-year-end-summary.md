@@ -1,6 +1,6 @@
 ---
 title: 2023 年终总结
-date: 2024-02-21 20:45:50
+date: 2024-02-20 20:45:50
 draft: false
 featured: true
 tags:
@@ -63,7 +63,7 @@ _Photo by [Jason Leung](https://unsplash.com/@ninjason?utm_source=Obsidian%20Ima
 
 就写这么多。
 
-2024.02.21
+2024.02.20
 
 #### 后记
 
