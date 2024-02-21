@@ -63,6 +63,8 @@ _Photo by [Jason Leung](https://unsplash.com/@ninjason?utm_source=Obsidian%20Ima
 
 就写这么多。
 
+2024.02.21
+
 #### 后记
 
 23 年开始用博客的 about 页面记录了每个月的旅行，徒步和阅读，一年结束，归档在此。
