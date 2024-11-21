@@ -1,7 +1,7 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://www.zhengminhui.com/",
+  website: "https://zhengminhui.github.io",
   author: "Minhui Zheng",
   desc: "I share my thoughts and I hope you enjoy my articles.",
   title: "Minhui's blog",
@@ -11,6 +11,7 @@ export const SITE: Site = {
   postPerPage: 20,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: true,
+  base: "/zhengminhui.github.io",
 };
 
 export const LOCALE = {
