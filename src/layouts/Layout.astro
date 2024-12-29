@@ -1,7 +1,6 @@
 ---
 import { SITE } from "@config";
 import "@styles/base.css";
-import SpeedInsights from "@vercel/speed-insights/astro"
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -27,7 +26,7 @@ const socialImageURL = new URL(
 ).href;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -56,8 +55,6 @@ const socialImageURL = new URL(
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageURL} />
-
-    <SpeedInsights />
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
