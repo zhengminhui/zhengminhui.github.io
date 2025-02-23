@@ -6,7 +6,7 @@ tags:
   - smartnews
   - web-development
 postSlug: my-projects-at-smartnews
-featured: true
+featured: false
 ---
 
 ### disaster info hub for hurricane and wildfires

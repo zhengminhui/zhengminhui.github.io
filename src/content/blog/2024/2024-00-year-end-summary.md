@@ -2,7 +2,7 @@
 title: 2023 年终总结
 date: 2024-02-20 20:45:50
 draft: false
-featured: true
+featured: false
 tags:
   - summary
 description: 迟到的年终总结。

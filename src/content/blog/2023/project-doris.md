@@ -2,7 +2,7 @@
 title: Project Doris mid-term retro
 date: 2023-06-19 17:21:53
 draft: false
-featured: true
+featured: false
 tags:
   - tech
 postSlug: project-doris-mid-term-retro
