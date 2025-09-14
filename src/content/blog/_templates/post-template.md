@@ -1,7 +1,7 @@
 ---
 title: {{title}}
 date: {{date}} {{time}}
-draft: true
+draft: false
 featured: false
 tags:
   - week
