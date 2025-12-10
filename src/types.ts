@@ -1,5 +1,3 @@
-import type socialIcons from "@assets/socialIcons";
-
 export type Site = {
   website: string;
   author: string;
@@ -20,7 +18,7 @@ export type Site = {
 };
 
 export type SocialObjects = {
-  name: keyof typeof socialIcons;
+  name: any;
   href: string;
   active: boolean;
   linkTitle: string;
