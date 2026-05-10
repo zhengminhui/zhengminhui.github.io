@@ -5,6 +5,7 @@ import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
 import Datetime from "@components/Datetime";
 // import LinkButton from "@components/LinkButton.astro";
+import { render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 // import { getCollection, getDataEntryById } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
@@ -19,7 +20,7 @@ const { post } = Astro.props;
 
 const { title, author, description, ogImage, date, tags } = post.data;
 
-const { Content } = await post.render();
+const { Content } = await render(post);
 
 const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
   .href;
@@ -87,6 +88,7 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
 </Layout>
 
 <style>
+  @reference "../styles/base.css";
   main {
     @apply mx-auto w-full max-w-3xl px-4 pb-12;
   }
