@@ -24,6 +24,7 @@ jobs:
         uses: withastro/action@v3
         with:
           package-manager: npm # Use npm as the package manager
+          node-version: 22
 
   deploy:
     needs: build
