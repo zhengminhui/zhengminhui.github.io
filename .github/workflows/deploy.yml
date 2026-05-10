@@ -23,7 +23,7 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
-          package-manager: npm # Use npm as the package manager
+          package-manager: pnpm@10
           node-version: 22
 
   deploy:
@@ -33,17 +33,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm install
-      - name: Build and deploy
-        run: npm run build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-          name: my-artifacts-${{ github.run_id }} # Add a unique identifier to the artifact name
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
