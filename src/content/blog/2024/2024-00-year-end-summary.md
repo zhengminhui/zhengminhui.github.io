@@ -5,6 +5,7 @@ draft: false
 featured: false
 tags:
   - summary
+  - about
 description: 迟到的年终总结。
 ogImage: https://images.unsplash.com/photo-1612201598945-f66a763965bd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAwOTd8MHwxfHNlYXJjaHwxMHx8bHVuYXIlMjBuZXclMjB5ZWFyfGVufDB8MHx8fDE3MDg0MjEyMjl8MA&ixlib=rb-4.0.3&q=80&w=1080
 postSlug: 2023-year-end-summary

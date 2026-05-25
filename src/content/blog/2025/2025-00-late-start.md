@@ -5,6 +5,7 @@ draft: false
 featured: false
 tags:
   - summary
+  - about
 description: 又一年迟到的年终总结。
 ogImage: https://images.unsplash.com/photo-1501504905252-473c47e087f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjAwOTd8MHwxfHNlYXJjaHwxMHx8bmV3JTIweWVhcnxlbnwwfDB8fHwxNzQwMjkxNjE1fDA&ixlib=rb-4.0.3&q=80&w=1080
 postSlug: 2024-year-end-summary

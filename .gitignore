@@ -41,3 +41,5 @@ settings.json
 src/content/blog/.obsidian
 .vscode/
 .idea/
+
+src/content/blog/logs
