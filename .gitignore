@@ -43,3 +43,5 @@ src/content/blog/.obsidian
 .idea/
 
 src/content/blog/logs
+
+.obsidian
